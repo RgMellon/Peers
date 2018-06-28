@@ -1,7 +1,10 @@
 <template>
+<div>
+{{ itemSelecionado }}
   <q-search color="secondary" v-model="terms" placeholder="O que procura ?">
-    <q-autocomplete :debounce="1000" @search="search" />
+    <q-autocomplete :debounce="1000" @search="search" @selected="selected" />
   </q-search>
+  </div>
 </template>
 
 <script>
@@ -31,16 +34,17 @@ export default {
     return {
       terms: '',
       countries: parseCountries(),
+      itemSelecionado: '',
     }
   },
   methods: {
     search (terms, done) {
       setTimeout(() => {
         done(filter(terms, {field: 'value', list: parseCountries()}))
-      }, 1000)
+      }, 800)
     },
     selected (item) {
-      this.$q.notify(`Selected suggestion "${ item.label}"`)
+      this.$emit('selecionou');
     },
   }
 }

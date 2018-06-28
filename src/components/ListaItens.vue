@@ -1,5 +1,6 @@
 <template>
-  <q-card inline class="q-ma-sm" style="width: 100%; margin:0px">
+<div>
+  <q-card inline class="q-ma-sm" style="width: 100%; margin:0px" v-for="i of 10">
       <q-item>
         <q-item-side avatar="statics/fachada.jpg" />
         <q-item-main>
@@ -24,6 +25,7 @@
         <q-btn flat color="">Visitar Loja</q-btn>
       </q-card-actions>
     </q-card>
+</div>
 </template>
 
 <script>
