@@ -75,7 +75,7 @@ module.exports = function (ctx) {
       // workboxPluginMode: 'InjectManifest',
       // workboxOptions: {},
       manifest: {
-        name: '#MyPeers',
+        name: 'MyPeers',
         short_name: 'MyPeers',
         description: 'App de busca de sapatos na região de birigui',
         display: 'standalone',

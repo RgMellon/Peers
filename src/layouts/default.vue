@@ -15,9 +15,9 @@
         <img src="statics/icons/icon-128x128.png" class="avatar" style="height:45px; width:45px">
       </q-btn>
 
-        <q-toolbar-title style="color:black">
-          App
-          <div slot="subtitle">Slogan</div>
+        <q-toolbar-title style="color:black; margin-left:0.8rem">
+            <span style="font-family: 'Satisfy', cursive;"> MyPeers </span>
+          <div slot="subtitle">Encontre seu par perfeito </div>
         </q-toolbar-title>
       </q-toolbar>
     </q-layout-header>
@@ -77,5 +77,6 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+  @import url('https://fonts.googleapis.com/css?family=Satisfy');
 </style>
