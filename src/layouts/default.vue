@@ -10,8 +10,9 @@
           round
           aria-label="logo"
           color="secondary"
+          style="margin-top:-0.8rem"
       >
-        <q-icon name="fas fa-shoe-prints" />
+        <img src="statics/icons/icon-128x128.png" class="avatar" style="height:45px; width:45px">
       </q-btn>
 
         <q-toolbar-title style="color:black">
