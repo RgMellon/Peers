@@ -12,7 +12,7 @@
           color="secondary"
           style="margin-top:-0.8rem"
       >
-        <img src="statics/icons/icon-128x128.png" class="avatar" style="height:45px; width:45px">
+        <img src="statics/icons/icon-128x128.png" class="avatar" style="height:40px; width:40px">
       </q-btn>
 
         <q-toolbar-title style="color:black; margin-left:0.8rem">
