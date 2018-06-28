@@ -1,6 +1,6 @@
 <template>
 <div>
-  <q-card inline class="q-ma-sm" style="width: 100%; margin:0px" v-for="i of 10">
+  <q-card inline class="q-ma-sm" style="width: 100%; margin:0px margin-top:2rem" v-for="i of 10">
       <q-item>
         <q-item-side avatar="statics/fachada.jpg" />
         <q-item-main>
