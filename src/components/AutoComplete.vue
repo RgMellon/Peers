@@ -1,5 +1,5 @@
 <template>
-  <q-search v-model="terms" placeholder="O que procura ?">
+  <q-search color="secondary" v-model="terms" placeholder="O que procura ?">
     <q-autocomplete :debounce="1000" @search="search" />
   </q-search>
 </template>

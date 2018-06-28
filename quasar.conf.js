@@ -78,11 +78,11 @@ module.exports = function (ctx) {
       manifest: {
         // name: 'Quasar App',
         // short_name: 'Quasar-PWA',
-        // description: 'Best PWA App in town!',
+        description: 'Melhor app do universo',
         display: 'standalone',
         orientation: 'portrait',
         background_color: '#ffffff',
-        theme_color: '#027be3',
+        theme_color: 'white',
         icons: [
           {
             'src': 'statics/icons/icon-128x128.png',

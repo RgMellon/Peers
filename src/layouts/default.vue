@@ -2,20 +2,20 @@
   <q-layout view="lHh Lpr lFf">
     <q-layout-header>
       <q-toolbar
-        color="info"
+       color="transparent"
       >
       <q-btn
           flat
           dense
           round
-          @click="leftDrawerOpen = !leftDrawerOpen"
-          aria-label="Menu"
+          aria-label="logo"
+          color="secondary"
       >
-        <q-icon name="menu" />
+        <q-icon name="fas fa-shoe-prints" />
       </q-btn>
 
-        <q-toolbar-title>
-          Nome do aPP
+        <q-toolbar-title style="color:black">
+          App
           <div slot="subtitle">Slogan</div>
         </q-toolbar-title>
       </q-toolbar>
