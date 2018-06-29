@@ -1,0 +1,33 @@
+<template>
+  <q-list inset-separator class="q-mt-md myshaddow">
+    <q-item multiline>
+      <q-item-side :avatar="`statics/${this.img}`"/>
+        <q-item-main
+          :label="this.nome"
+          label-lines="1"
+          :sublabel="this.descricao"
+          sublabel-lines="4"
+        />
+      <q-item-side right :stamp="`R$ ${this.preco}`" />
+    </q-item>
+  </q-list>
+</template>
+
+<script>
+export default {
+  name: 'ListaComponent',
+  props: ['nome', 'descricao', 'img', 'preco'],
+  data () {
+    return {}
+  }
+}
+</script>
+
+<style scoped>
+  .myshaddow{
+    border:0px;
+    box-shadow: 5px 3px 0px 0px rgba(191, 190, 173, 0.09),
+                3px 8px 5px rgba(0, 0, 0, 0),
+                5px 5px 10px rgba(255, 253, 253, 0.12)
+    }
+</style>
