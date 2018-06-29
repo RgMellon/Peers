@@ -80,8 +80,8 @@ module.exports = function (ctx) {
         description: 'App de busca de sapatos na região de birigui',
         display: 'standalone',
         orientation: 'portrait',
-        background_color: '#FFFFFF',
-        theme_color: '#ffc107',
+        background_color: '#ffffff',
+        theme_color: '#ffffff',
         icons: [
           {
             'src': 'statics/icons/icon-128x128.png',
