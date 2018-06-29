@@ -1,8 +1,17 @@
 <template>
   <q-page padding class="docs-input row justify-center">
       <div style="width: 500px; max-width: 90vw;">
-          <auto-complete @selecionou="mostraResultado" style="margin-top:2rem"></auto-complete>
-          <lista-itens v-if="this.mostra" style="margin-top:2rem"></lista-itens>
+          <section class="busca">
+            <auto-complete @selecionou="mostraResultado" style="margin-top:2rem"></auto-complete>
+          </section>
+          <section class="itens-card" v-if="this.mostra" style="margin-top:2rem">
+            <card  v-for="i of this.dados"
+                :nome="i.nome" :preco="i.preco" :desc="i.descricao"
+                :img="i.img" :nomeEmpresa="i.nome_empresa"
+                :descEmpresa="i.descricao_empresa"
+                >
+            </card>
+          </section>
       </div>
   </q-page>
 </template>
@@ -12,16 +21,19 @@
 
 <script>
 import AutoComplete from '../components/AutoComplete';
-import ListaItens from '../components/ListaItens';
+import Card from '../components/Card';
+import dados from 'assets/dados.json';
+
 export default {
   name: 'PageIndex',
   components: {
     'auto-complete' : AutoComplete,
-    'lista-itens': ListaItens,
+    'card': Card,
   },
   data () {
     return {
       mostra: false,
+      dados,
     }
   },
   methods: {

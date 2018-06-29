@@ -11,11 +11,7 @@
 import {filter } from 'quasar'
 import categorias from 'assets/autocomplete.json';
 
-function getRandomStamp () {
-  if (Math.floor(Math.random() * 50) % 3 === 0) {
-    return `${Math.floor(Math.random() * 10)} min`
-  }
-}
+
 
 function parseCountries () {
   return categorias.map(country => {
@@ -23,7 +19,7 @@ function parseCountries () {
       label: country,
       sublabel: 'Label randomica',
       icon: 'fas fa-hashtag',
-      stamp: getRandomStamp(),
+
       value: country
     }
   })
