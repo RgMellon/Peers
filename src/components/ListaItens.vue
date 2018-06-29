@@ -15,13 +15,13 @@
       <q-card-title>
         <div class="row justify-between">
         <span>Bota</span>
-        <span color--text="secondary"> R$ 90.99 </span>
+        <div > R$ 90.99 </div>
         </div>
         <span slot="subtitle">Bota Feminina cano curto</span>
       </q-card-title>
       <q-card-separator />
       <q-card-actions>
-        <q-btn flat color="secondary">Adicionar favoritos </q-btn>
+        <q-btn flat color="amber">Adicionar favoritos </q-btn>
         <q-btn flat color="">Visitar Loja</q-btn>
       </q-card-actions>
     </q-card>
