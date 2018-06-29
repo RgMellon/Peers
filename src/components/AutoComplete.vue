@@ -1,7 +1,7 @@
 <template>
 <div>
 {{ itemSelecionado }}
-  <q-search color="amber" v-model="terms" placeholder="O que procura ?">
+  <q-search color="warning" v-model="terms" placeholder="O que procura ?">
     <q-autocomplete :debounce="1000" @search="search" @selected="selected" />
   </q-search>
   </div>

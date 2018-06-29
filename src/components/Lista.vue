@@ -1,4 +1,5 @@
 <template>
+<div  @click="redireciona">
   <q-list inset-separator class="q-mt-md myshaddow">
     <q-item multiline>
       <q-item-side :avatar="`statics/${this.img}`"/>
@@ -11,6 +12,7 @@
       <q-item-side right :stamp="`R$ ${this.preco}`" />
     </q-item>
   </q-list>
+</div>
 </template>
 
 <script>
@@ -19,6 +21,11 @@ export default {
   props: ['nome', 'descricao', 'img', 'preco'],
   data () {
     return {}
+  },
+  methods: {
+    redireciona(){
+      this.$router.push('/calcado/detalhes');
+    }
   }
 }
 </script>
