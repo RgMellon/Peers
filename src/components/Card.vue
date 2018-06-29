@@ -1,7 +1,7 @@
 <template>
   <div class="img row justify-center">
     <div class="area-img row justify-center">
-      <img src="statics/bota.jpg" class="img-detalhe shadow-up" style="width:200px" height="200px">
+      <img src="statics/bota.jpg" class="img-detalhe shadow-up" style="width:150px" height="150px">
     </div>
     <section class="info-produto">
 
@@ -25,7 +25,7 @@ export default {
     width: 250px;
     position: relative;
     top: 19px;
-    border-radius: 69px;
+    border-radius: 44px;
     display: flex;
     justify-content: center;
   }
