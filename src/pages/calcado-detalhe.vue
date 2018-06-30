@@ -43,7 +43,7 @@ export default {
     modal: Modal,
   },
   mounted() {
-    this.$q.loading.hide()
+    this.$q.loading.hide();
   },
 }
 </script>

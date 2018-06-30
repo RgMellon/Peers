@@ -25,9 +25,10 @@ export default {
   methods: {
     redireciona(){
       this.$q.loading.show()
-      this.$router.push('/calcado/detalhes');
-      
-      // this.$q.loading.show()
+      setTimeout(() => {
+        this.$router.push('/calcado/detalhes');
+        this.$q.loading.hide()
+      }, 3000)
     }
   }
 }
