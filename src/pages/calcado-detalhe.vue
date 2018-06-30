@@ -27,9 +27,9 @@
       </section>
     </section>
     <section class="info-loja" style="margin-top:2rem; width:90%">
-      <p class="row justify-center sub-menu">
-        <modal></modal>
-      </p>
+      <div class="row justify-center sub-menu">
+      </div>
+      <modal></modal>
     </section>
     </section>
 </template>
