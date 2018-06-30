@@ -9,7 +9,7 @@ export default [
   },
   {
     path: '/calcado/detalhes',
-    component: () => import('layouts/default'),
+    component: () => import('layouts/detalhes'),
     children: [
       { path: '', component: () => import('pages/calcado-detalhe') }
     ]

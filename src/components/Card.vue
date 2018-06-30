@@ -11,7 +11,18 @@
           <p> R$ 550.00 </p>
         </div>
         <div class="descricao-produto q-pa-sm row">
-          <p style="text-align:center;"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dapibus convallis lorem nec aliquet. Curabitur vitae purus quis massa sollicitudin posuere. Donec in dolor nisi. Ut finibus, dolor vel fermentum lacinia, diam ex dignissim nisi, ac varius ipsum lectus eget ligula. Etiam et venenatis ante.</p>
+          <p style="text-align:left;">
+            Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit.
+            Ut dapibus convallis lorem nec aliquet.
+            Curabitur vitae purus</p>
+        </div>
+        <div class="info">
+            <ul>
+              <li> Marrom </li>
+              <li> Coro </li>
+              <li> 100% legal</li>
+            </ul>
         </div>
     </section>
   </div>
@@ -28,7 +39,6 @@ export default {
 </script>
 
 <style scoped>
-
   .img-detalhe {
     width: 250px;
     position: relative;
@@ -49,8 +59,8 @@ export default {
     font-size: 1.8rem;
     color: #9E9E9E;
   }
-  .descricao{
-    background: red;
+  .descricao-produto{
+    margin-left: 4%;
   }
   .preco-produto {
     font-size: 1.3rem;

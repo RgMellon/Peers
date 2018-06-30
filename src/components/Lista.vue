@@ -2,7 +2,7 @@
 <div  @click="redireciona">
   <q-list inset-separator class="q-mt-md myshaddow">
     <q-item multiline>
-      <q-item-side :avatar="`statics/${this.img}`"/>
+      <q-item-side class="img-avatar" :avatar="`statics/${this.img}`"/>
         <q-item-main
           :label="this.nome"
           label-lines="1"
@@ -37,4 +37,9 @@ export default {
                 3px 8px 5px rgba(0, 0, 0, 0),
                 5px 5px 10px rgba(255, 253, 253, 0.12)
     }
+    .img-avatar img{
+      width: 45px;
+      height: 45px;
+    }
+
 </style>
