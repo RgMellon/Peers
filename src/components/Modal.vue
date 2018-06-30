@@ -7,7 +7,7 @@
       @click="actionSheet = true"
       label="Me Mostrar"
       class="full-width"
-      style="background: #E8D23E; color: white" 
+      style="background: #E8D23E; color: white; margin-bottom:1rem;"
     />
 
     <q-action-sheet style="min-height:0px;"
