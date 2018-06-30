@@ -41,7 +41,10 @@ export default {
   name: 'PaginaDetalheCalcado',
   components: {
     modal: Modal,
-  }
+  },
+  mounted() {
+    this.$q.loading.hide()
+  },
 }
 </script>
 
