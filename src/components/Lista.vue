@@ -33,9 +33,7 @@ export default {
 <style scoped>
   .myshaddow{
     border:0px;
-    box-shadow: 5px 3px 0px 0px rgba(191, 190, 173, 0.09),
-                3px 8px 5px rgba(0, 0, 0, 0),
-                5px 5px 10px rgba(255, 253, 253, 0.12)
+    box-shadow: 5px 3px 0px 0px rgba(0, 0, 0, 0.13), 3px 8px 5px rgba(0, 0, 0, 0), 5px 5px 10px rgba(255, 253, 253, 0.12);
     }
     .img-avatar img{
       width: 45px;
