@@ -1,36 +1,31 @@
 <template>
   <q-page class="view-parallax">
-    <div class="q-parallax" style="height: 200px;">
-      <div class="q-parallax-image">
-        <q-parallax src="statics/fachada.jpg" class="img-paralax" style="height:300px">
-          <div slot="loading">Loading...</div>
-        </q-parallax>
+      <div>
+        <parallax :fixed="true">
+          <img src="statics/fachada2.jpg"
+            alt="very cool bg" style="height:250px; margin-top:3rem;">
+        </parallax>
       </div>
-    </div>
-    <div style="padding:0.5rem;">
-      <p v-for="n in 7" :key="`e-${n}`" class="par-text">{{ loremipsum }}</p>
-    </div>
+      <section class="info-loja">
+          Existem muitas variações disponíveis de passagens de Lorem Ipsum, mas a maioria sofreu algum tipo de alteração, seja por inserção de passagens com humor, ou palavras aleatórias que não parecem nem um pouco convincentes. Se você pretende usar uma passagem de Lorem Ipsum, precisa ter certeza de que não há algo embaraçoso escrito escondido no meio do texto. Todos os geradores de Lorem Ipsum na internet tendem a repetir pedaços predefinidos conforme necessário, fazendo deste o primeiro gerador de Lorem Ipsum autêntico da internet. Ele usa um dicionário com mais de 200 palavras em Latim combinado com um punhado de modelos de estrutura de frases para gerar um Lorem Ipsum com aparência razoável, livre de repetições, inserções de humor, palavras não características, etc.
+      </section>
   </q-page>
 </template>
-
 <script>
-export default {
-  data () {
-    return {
-      loremipsum: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+  import Parallax from 'vue-parallaxy'
+  export default {
+    components: {
+      Parallax
     }
   }
-}
 </script>
 
 <style scoped>
-  .img-paralax{
-    height: 300px;
-    margin: auto;
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
+  .info-loja {
+    background-color: #fff; 
+    height:90vh;
+    z-index: 9999;
+    position:absolute;
+    top:40%;
   }
 </style>
