@@ -24,7 +24,6 @@ export default {
 <style scoped>
   .fachada-loja {
     width: 100%;
-    background:red;
     height: 200px;
   }
   .fachada-loja img {
