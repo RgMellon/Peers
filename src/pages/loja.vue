@@ -2,7 +2,7 @@
   <q-page class="view-parallax">
       <div>
         <parallax :fixed="true">
-          <img src="statics/fachada2.jpg"
+          <img src="statics/fachada.jpeg"
             alt="very cool bg" style="height:250px; margin-top:3rem;">
         </parallax>
       </div>
