@@ -23,12 +23,8 @@ export default {
     return {}
   },
   methods: {
-    redireciona(){
-      this.$q.loading.show()
-      setTimeout(() => {
-        this.$router.push('/calcado/detalhes');
-        this.$q.loading.hide()
-      }, 3000)
+    redireciona() {
+      this.$redirecionaComLoad('/calcado/detalhes')
     }
   }
 }

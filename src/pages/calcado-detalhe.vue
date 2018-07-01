@@ -42,9 +42,6 @@ export default {
   components: {
     modal: Modal,
   },
-  mounted() {
-    this.$q.loading.hide();
-  },
 }
 </script>
 

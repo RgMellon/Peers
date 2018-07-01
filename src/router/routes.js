@@ -14,6 +14,13 @@ export default [
       { path: '', component: () => import('pages/calcado-detalhe') }
     ]
   },
+  {
+    path: '/loja',
+    component: () => import('layouts/detalhes'),
+    children: [
+      { path: '', component: () => import('pages/loja') }
+    ]
+  },
 
   { // Always leave this as last one
     path: '*',

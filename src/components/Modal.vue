@@ -13,7 +13,6 @@
     <q-action-sheet style="min-height:0px;"
         v-model="actionSheet"
         title="Informações"
-        @ok="onOk"
         @cancel="onCancel"
         :actions="[
           {
@@ -30,7 +29,8 @@
           {
             label: 'Ver mais Produtos dessa loja',
             icon: 'far fa-eye',
-            color: 'black'
+            color: 'black',
+            handler: redirecionaLoja
           },
         ]"
     />
@@ -48,15 +48,8 @@ export default {
     deleteAction () {
       // this.$q.notify('Deletando...')
     },
-    onOk (item) {
-      if (item.handler) {
-        // if we've already triggered a handler
-        return
-      }
-      // this.$q.notify({
-      //   color: 'secondary',
-      //   message: `Clicked on "${item.label}"`
-      // })
+    redirecionaLoja(){
+      this.$redirecionaComLoad('/loja')
     },
     onCancel () {
       // this.$q.notify({
