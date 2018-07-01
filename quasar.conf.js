@@ -61,6 +61,7 @@ module.exports = function (ctx) {
         'QScrollArea',
         'ActionSheet',
         'QActionSheet',
+        'QParallax',
       ],
       directives: [
         'Ripple'
