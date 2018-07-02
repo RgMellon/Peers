@@ -11,12 +11,12 @@
     </q-card>
     <div class="grid-galeria">
       <q-card inline class="q-ma-sm radius" style="width:70px; height:65px" v-for="i of 44" :key="i">
-      <q-card-media overlay-position="full">
-        <img src="statics/allstar.jpg">
-        <q-card-title slot="overlay">
-        </q-card-title>
-      </q-card-media>
-    </q-card>
+        <q-card-media overlay-position="full">
+          <img src="statics/allstar.jpg">
+          <q-card-title slot="overlay">
+          </q-card-title>
+        </q-card-media>
+      </q-card>
     </div>
   </div>
 </template>

@@ -1,6 +1,6 @@
 <template>
   <section class="container margin-right:1rem">
-    <div class="box" v-for="i of 100">
+    <div class="box" v-for="i of 100" @click="redirecionarPara">
       <img src="statics/allstar.jpg" class="max-100" alt="">
     </div>
   </section>
@@ -11,6 +11,11 @@ export default {
   name: 'Galeria',
   data () {
     return {}
+  },
+  methods: {
+    redirecionarPara(){
+      this.$redirecionaComLoad('calcado/detalhes')
+    }
   }
 }
 </script>

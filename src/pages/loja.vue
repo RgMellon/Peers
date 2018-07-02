@@ -22,11 +22,11 @@
         </section>
         <section class="galeria">
           <div id="or" class="row justify-center">
-            <div class="ultimo-adicionado row justify-center shadow-1"> 
+            <div class="ultimo-adicionado row justify-center shadow-1">
               <p class="self-center" style="color:#828080"> Galeria Produtos </p>
             </div>
           </div>
-          <Galeria></Galeria>
+          <Galeria style="margin-top:1rem;"></Galeria>
         </section>
       </section>
 </q-page>
