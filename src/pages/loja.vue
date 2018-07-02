@@ -11,44 +11,35 @@
             <h1> Nome Loja </h1>
         </section>
         <section class="descricao q-pa-sm">
-            <p>
-              A loja tal foi fundada em 1990 tendo desde então crediblidade
-              e uma historia cheia de clientes satisfeitos.
-              venha nos visitar ;)
-            </p>
-         </section>
-          <section class="contatos">
-            <q-list inset-separator style="border:0px;">
-              <q-item style="margin-bottom:1rem;">
-                <q-item-side icon="fas fa-map" color="amber" />
-                <q-item-main label="Rua tal de tal numero tal de tal" />
-              </q-item>
-              <q-item style="margin-bottom:1rem;">
-                <q-item-side icon="fas fa-phone" color="red" />
-                <q-item-main label="(18) 3643-198l" />
-              </q-item>
-              <q-item style="margin-bottom:1rem;">
-                <q-item-side icon="fab fa-whatsapp" color="secondary" />
-                <q-item-main label="(18) 3643-198l" />
-              </q-item>
-            </q-list>
-          </section>
-          <section class="ultimos-produtos row justify-center" id="or">
-            <div class="ultimo-adicionado shadow-1 row justify-center">
-              <p class="self-center"> Ultimos adicionados </p>
+          <p>
+            A loja tal foi fundada em 1990 tendo desde então crediblidade
+            e uma historia cheia de clientes satisfeitos.
+            venha nos visitar ;)
+          </p>
+        </section>
+        <section class="contatos">
+          <contatos></contatos>
+        </section>
+        <section class="galeria">
+          <div id="or" class="row justify-center">
+            <div class="ultimo-adicionado row justify-center shadow-1"> 
+              <p class="self-center" style="color:#828080"> Galeria Produtos </p>
             </div>
-            <Galeria></Galeria>
-          </section>
+          </div>
+          <Galeria></Galeria>
+        </section>
       </section>
 </q-page>
 </template>
 <script>
   import Parallax from 'vue-parallaxy'
   import Galeria from '../components/loja/Galeria';
+  import LojaContatos from '../components/loja/LojaContatos';
   export default {
     components: {
       Parallax,
-      Galeria
+      Galeria,
+      'contatos' : LojaContatos
     }
   }
 </script>
@@ -57,7 +48,6 @@
   .info-loja {
     background-color: #fff; 
     min-height:100%;
-    z-index: 9999;
     position:absolute;
     top:42%;
     width:100%;
@@ -66,15 +56,16 @@
     font-size:1.5rem;
     font-weight: 400;
   }
-  .descricao{
+  .descricao p {
     text-align: center;
     color: #828080;
   }
   .ultimo-adicionado{
-    width: 180px;
+    width: 190px;
     border-radius: 10px;
     height: 40px;
     margin:1rem;
+    border:1rem;
   }
   p{
     margin:0px;

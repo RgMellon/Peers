@@ -1,24 +1,9 @@
 <template>
-  <div class="area-galeria row">
-    <q-card inline class="q-ma-sm radius" style="width:150px; height: 150px">
-      <q-card-media overlay-position="full">
-        <img src="statics/allstar.jpg">
-        <q-card-title slot="overlay">
-          Title
-          <span slot="subtitle">Subtitle</span>
-        </q-card-title>
-      </q-card-media>
-    </q-card>
-    <div class="grid-galeria">
-      <q-card inline class="q-ma-sm radius" style="width:70px; height:65px" v-for="i of 4" :key="i">
-      <q-card-media overlay-position="full">
-        <img src="statics/allstar.jpg">
-        <q-card-title slot="overlay">
-        </q-card-title>
-      </q-card-media>
-    </q-card>
+  <section class="container margin-right:1rem">
+    <div class="box" v-for="i of 100">
+      <img src="statics/allstar.jpg" class="max-100" alt="">
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -31,10 +16,19 @@ export default {
 </script>
 
 <style scoped>
-  .grid-galeria {
-    width: 50%;
+  .container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: 7px;
   }
-  .radius {
-    border-radius: 20px;
-  }
+.box {
+  width: 31%;
+  margin: 1%;
+  border:1px solid #dedbdbc4;
+  border-radius: 10px;
+}
+.max-100{
+  max-width:100%;
+}
 </style>
