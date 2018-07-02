@@ -61,7 +61,7 @@ export default {
     height: 110px;
   }
   .info-produto{
-    margin-top: 6rem;
+    margin-top: 3rem;
   }
   .titulo h1{
     font-size: 1.8rem;
