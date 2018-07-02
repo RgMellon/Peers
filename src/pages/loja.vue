@@ -1,24 +1,24 @@
 <template>
   <q-page class="view-parallax">
-      <div>
+      <section class="img-loja">
         <parallax :fixed="true">
           <img src="statics/fachada.jpeg"
             alt="very cool bg" style="height:250px; margin-top:3rem;">
         </parallax>
-      </div>
+      </section>
       <section class="info-loja padding column">
-          <div class="titulo row justify-center">
-             <h1> Nome Loja </h1>
-          </div>
-          <div class="sobre q-pa-sm">
+        <section class="titulo row justify-center">
+            <h1> Nome Loja </h1>
+        </section>
+        <section class="descricao q-pa-sm">
             <p>
               A loja tal foi fundada em 1990 tendo desde então crediblidade
               e uma historia cheia de clientes satisfeitos.
               venha nos visitar ;)
             </p>
-
-            <section class="contatos">
-                <q-list inset-separator style="border:0px;">
+         </section>
+          <section class="contatos">
+            <q-list inset-separator style="border:0px;">
               <q-item style="margin-bottom:1rem;">
                 <q-item-side icon="fas fa-map" color="amber" />
                 <q-item-main label="Rua tal de tal numero tal de tal" />
@@ -32,8 +32,7 @@
                 <q-item-main label="(18) 3643-198l" />
               </q-item>
             </q-list>
-            </section>
-          </div>
+          </section>
           <section class="ultimos-produtos row justify-center" id="or">
             <div class="ultimo-adicionado shadow-1 row justify-center">
               <p class="self-center"> Ultimos adicionados </p>
@@ -67,7 +66,7 @@
     font-size:1.5rem;
     font-weight: 400;
   }
-  .sobre{
+  .descricao{
     text-align: center;
     color: #828080;
   }
@@ -105,6 +104,5 @@
   }
   .contatos {
     margin-top:1rem;
- 
   }
 </style>

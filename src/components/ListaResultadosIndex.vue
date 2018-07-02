@@ -1,5 +1,5 @@
 <template>
-<div @click="redireciona">
+<div>
   <q-list inset-separator class="q-mt-md myshaddow">
     <q-item multiline>
       <q-item-side class="img-avatar" :avatar="`statics/${this.img}`"/>
@@ -22,11 +22,6 @@ export default {
   data () {
     return {}
   },
-  methods: {
-    redireciona() {
-      this.$redirecionaComLoad('/calcado/detalhes')
-    }
-  }
 }
 </script>
 

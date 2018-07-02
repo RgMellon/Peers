@@ -11,7 +11,7 @@
         <p> R$ 550.00 </p>
       </div>
       <div class="descricao-produto q-pa-sm row">
-        <p style="text-align:left;">
+        <p>
           Lorem ipsum dolor sit amet,
           consectetur adipiscing elit.
           Ut dapibus convallis lorem nec aliquet.
@@ -69,6 +69,9 @@ export default {
   }
   .descricao-produto{
     margin-left: 4%;
+  }
+  .descricao-produto p {
+    text-align: left;
   }
   .preco-produto {
     font-size: 1.3rem;
