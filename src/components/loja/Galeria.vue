@@ -10,7 +10,7 @@
       </q-card-media>
     </q-card>
     <div class="grid-galeria">
-      <q-card inline class="q-ma-sm radius" style="width:70px; height:65px" v-for="i of 4">
+      <q-card inline class="q-ma-sm radius" style="width:70px; height:65px" v-for="i of 4" :key="i">
       <q-card-media overlay-position="full">
         <img src="statics/allstar.jpg">
         <q-card-title slot="overlay">
