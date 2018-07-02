@@ -16,10 +16,11 @@
         <img src="statics/icons/icon-128x128.png" class="avatar" style="height:40px; width:40px">
       </q-btn>
 
-        <q-toolbar-title style="color:black; margin-left:0.8rem">
+      <q-toolbar-title style="color:black; margin-left:0.8rem">
             <span style="font-family: 'Satisfy', cursive;"> MyPeers </span>
           <div slot="subtitle">Encontre seu par perfeito </div>
-        </q-toolbar-title>
+      </q-toolbar-title>
+       <q-btn flat color="black" round dense icon="more_vert" />
       </q-toolbar>
     </q-layout-header>
 
