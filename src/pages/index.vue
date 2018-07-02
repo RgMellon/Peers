@@ -1,6 +1,6 @@
 <template>
   <q-page padding class="docs-input row justify-center">
-      <div style="width: 500px; max-width: 90vw;">
+      <div style="width: 500px; max-width: 90vw;" class="main">
           <section class="busca">
             <auto-complete @selecionou="mostraResultado" style="margin-top:2rem"></auto-complete>
           </section>
@@ -9,6 +9,9 @@
               :nome="i.nome" :descricao="i.descricao"
               :img="i.img" :preco="i.preco">
             </lista>
+          </section>
+          <section class="area-login row">
+             <q-btn color="primary" icon="fas fa-user" class="full-width" label="Login" />
           </section>
       </div>
   </q-page>
@@ -44,3 +47,9 @@ export default {
   }
 }
 </script>
+
+<style>
+    .main {display: flex;
+    flex-direction: column;
+    justify-content: space-between;}
+</style>
