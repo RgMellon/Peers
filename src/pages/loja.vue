@@ -1,6 +1,6 @@
 <template>
   <q-page>
-    <parallax img="fachada.jpeg">
+    <parallax img="statics/fachada.jpeg">
       <section slot="conteudo">
         <section class="info-loja padding column">
           <section class="titulo row justify-center">
