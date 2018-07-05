@@ -5,7 +5,8 @@ module.exports = function (ctx) {
     // app plugins (/src/plugins)
     plugins: [
       'axios',
-      'redirecionaComLoad'
+      'redirecionaComLoad',
+      'createImg'
     ],
     css: [
       'app.styl'

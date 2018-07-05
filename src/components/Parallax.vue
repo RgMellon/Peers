@@ -1,14 +1,18 @@
 <template>
-  <q-page class="view-parallax">
+  <div class="view-parallax">
     <parallax :fixed="true">
-      <img :src="`statics/${img}`" style="height:250px; margin-top:3rem">
+      <div v-if="this.img">
+        <img :src="`${img}`" style="height:250px; margin-top:3rem">
+      </div>
+      <div v-else class="no-img">
+      </div>
     </parallax>
     <section class="content-parallax">
       <div style="padding:0.5rem;" class="column">
         <slot name="conteudo"></slot>
       </div>
     </section>
-  </q-page>
+  </div>
 </template>
 
 <script>
@@ -28,7 +32,6 @@ export default {
 <style scoped>
   .content-parallax {
     background-color: #fff; 
-    min-height:100%;
     position:absolute;
     top:42%;
     width:100%;
