@@ -1,36 +1,11 @@
 <template>
   <q-layout>
-    <!-- (Optional) The Footer -->
-    <q-layout-footer>
-      <q-toolbar>
-        <q-btn
-          flat
-          round
-          dense
-          icon="menu"
-          @click="leftDrawer = !leftDrawer"
-        />
-        <q-toolbar-title>
-         <span slot="subtitle">Subtile</span>
-        </q-toolbar-title>
-      </q-toolbar>
-
-    </q-layout-footer>
-
-    <!-- (Optional) A Drawer; you can add one more with side="right" or change this one's side -->
-    <q-layout-drawer
-      side="left"
-      v-model="leftDrawer"
-    >
-      <!-- QScrollArea is optional -->
-    </q-layout-drawer>
-
     <q-page-container>
-      <!-- This is where pages get injected -->
       <router-view />
     </q-page-container>
     <!-- Footer -->
-    <q-layout-footer clas="fixed-bottom absolute-bottom">
+    <div class="fixed-bottom">
+    <q-layout-footer >
       <q-tabs style="height:56px">
         <q-route-tab
           slot="title"
@@ -47,8 +22,8 @@
           label="Other Tab"
         />
       </q-tabs>
-
     </q-layout-footer>
+  </div>
   </q-layout>
 </template>
 
