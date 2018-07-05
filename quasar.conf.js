@@ -69,7 +69,9 @@ module.exports = function (ctx) {
         'QRouteTab',
         'QLayoutFooter',
         'QPageSticky',
-        'QFab'
+        'QFab',
+        'QField',
+        'QInput'
       ],
       directives: [
         'Ripple'
