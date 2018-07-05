@@ -15,6 +15,15 @@
       <q-btn flat round dense color="purple" icon="mail" />
       <q-btn flat round dense color="green" icon="alarm" />
     </q-toolbar>
+    <q-layout-drawer
+      side="left"
+      v-model="leftSide"
+    >
+      <!-- QScrollArea is optional -->
+      <q-scroll-area class="fit q-pa-sm">
+        <!-- Content here -->
+      </q-scroll-area>
+    </q-layout-drawer>
     <q-page-container>
       <router-view />
     </q-page-container>
@@ -26,7 +35,7 @@ export default {
   // name: 'LayoutName',
   data () {
     return {
-      leftDrawer: true
+      leftSide: true
     }
   }
 }
