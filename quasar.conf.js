@@ -63,6 +63,11 @@ module.exports = function (ctx) {
         'ActionSheet',
         'QActionSheet',
         'QParallax',
+        'QTabs',
+        'QTab',
+        'QTabPane',
+        'QRouteTab',
+        'QLayoutFooter'
       ],
       directives: [
         'Ripple'

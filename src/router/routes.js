@@ -21,7 +21,13 @@ export default [
       { path: '', component: () => import('pages/loja') }
     ]
   },
-
+  {
+    path: '/admin',
+    component: () => import('layouts/admin'),
+    children: [
+      { path: '', component: () => import('pages/dash') }
+    ]
+  },
   { // Always leave this as last one
     path: '*',
     component: () => import('pages/404')
