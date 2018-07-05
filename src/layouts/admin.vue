@@ -1,46 +1,5 @@
 <template>
   <q-layout>
-
-    <!-- (Optional) The Header -->
-    <q-layout-header>
-      <q-toolbar>
-        <q-btn
-          flat
-          round
-          dense
-          icon="menu"
-          @click="leftDrawer = !leftDrawer"
-        />
-        <q-toolbar-title>
-          Header
-          <span slot="subtitle">Subtile</span>
-        </q-toolbar-title>
-      </q-toolbar>
-      <!-- <q-tabs> -->
-        <!-- <q-route-tab
-          slot="title"
-          icon="map"
-          to="/your/route"
-          replace
-          label="One Tab"
-        />
-        <q-route-tab
-          slot="title"
-          icon="assignment"
-          to="/some/other/route"
-          replace
-          label="Other Tab"
-        />
-        <q-route-tab
-          slot="title"
-          icon="assignment"
-          to="/some/other/route"
-          replace
-          label="Other Tab"
-        /> -->
-
-    </q-layout-header>
-
     <!-- (Optional) The Footer -->
     <q-layout-footer>
       <q-toolbar>
@@ -72,7 +31,7 @@
     </q-page-container>
     <!-- Footer -->
     <q-layout-footer clas="fixed-bottom absolute-bottom">
-      <q-tabs>
+      <q-tabs style="height:56px">
         <q-route-tab
           slot="title"
           icon="map"
