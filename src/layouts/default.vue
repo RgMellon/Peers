@@ -17,7 +17,7 @@
       </q-btn>
 
       <q-toolbar-title style="color:black; margin-left:0.8rem">
-            <span style="font-family: 'Satisfy', cursive;"> MyPeers </span>
+          <span style="font-family: 'Satisfy', cursive;"> MyPeers </span>
           <div slot="subtitle">Encontre seu par perfeito </div>
       </q-toolbar-title>
        <q-btn flat color="black" round dense icon="more_vert" />

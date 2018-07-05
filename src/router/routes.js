@@ -22,6 +22,13 @@ export default [
     ]
   },
   {
+    path: '/teste',
+    component: () => import('layouts/default'),
+    children: [
+      { path: '', component: () => import('pages/teste') }
+    ]
+  },
+  {
     path: '/admin',
     component: () => import('layouts/admin'),
     children: [

@@ -1,43 +1,41 @@
 <template>
-  <q-page class="view-parallax">
-      <section class="img-loja">
-        <parallax :fixed="true">
-          <img src="statics/fachada.jpeg"
-            alt="very cool bg" style="height:250px; margin-top:3rem;">
-        </parallax>
-      </section>
-      <section class="info-loja padding column">
-        <section class="titulo row justify-center">
+  <q-page>
+    <parallax img="fachada.jpeg">
+      <section slot="conteudo">
+        <section class="info-loja padding column">
+          <section class="titulo row justify-center">
             <h1> Nome Loja </h1>
-        </section>
-        <section class="descricao q-pa-sm">
-          <p>
-            A loja tal foi fundada em 1990 tendo desde então crediblidade
-            e uma historia cheia de clientes satisfeitos.
-            venha nos visitar ;)
-          </p>
-        </section>
-        <section class="contatos">
-          <contatos></contatos>
-        </section>
-        <section class="galeria">
-          <div id="or" class="row justify-center">
-            <div class="ultimo-adicionado row justify-center shadow-1">
-              <p class="self-center" style="color:#828080"> Galeria Produtos </p>
+          </section>
+          <section class="descricao q-pa-sm">
+            <p>
+              A loja tal foi fundada em 1990 tendo desde então crediblidade
+              e uma historia cheia de clientes satisfeitos.
+              venha nos visitar ;)
+            </p>
+          </section>
+          <section class="contatos">
+            <contatos></contatos>
+          </section>
+          <section class="galeria">
+            <div id="or" class="row justify-center">
+              <div class="ultimo-adicionado row justify-center shadow-1">
+                <p class="self-center" style="color:#828080"> Galeria Produtos </p>
+              </div>
             </div>
-          </div>
-          <Galeria style="margin-top:1rem;"></Galeria>
+            <Galeria style="margin-top:1rem;"></Galeria>
+          </section>
         </section>
       </section>
-</q-page>
+    </parallax>
+  </q-page>
 </template>
 <script>
-  import Parallax from 'vue-parallaxy'
+  import Parallax from '../components/Parallax';
   import Galeria from '../components/loja/Galeria';
   import LojaContatos from '../components/loja/LojaContatos';
   export default {
     components: {
-      Parallax,
+      'parallax' : Parallax,
       Galeria,
       'contatos' : LojaContatos
     }
@@ -45,13 +43,6 @@
 </script>
 
 <style scoped>
-  .info-loja {
-    background-color: #fff; 
-    min-height:100%;
-    position:absolute;
-    top:42%;
-    width:100%;
-  }
   .titulo h1 {
     font-size:1.5rem;
     font-weight: 400;
