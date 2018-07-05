@@ -71,8 +71,7 @@
       <router-view />
     </q-page-container>
     <!-- Footer -->
-  <q-layout-footer>
-
+    <q-layout-footer clas="fixed-bottom absolute-bottom">
       <q-tabs>
         <q-route-tab
           slot="title"
@@ -90,7 +89,7 @@
         />
       </q-tabs>
 
-  </q-layout-footer>
+    </q-layout-footer>
   </q-layout>
 </template>
 
