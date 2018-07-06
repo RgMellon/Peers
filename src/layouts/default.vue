@@ -4,15 +4,8 @@
       <q-toolbar
        color="white"
       >
-      <q-btn
-          flat
-          dense
-          round
-          aria-label="logo"
-          color="secondary"
-          style="margin-top:-0.5rem"
-          to="/"
-      >
+      <q-btn flat dense round aria-label="logo" color="secondary" style="margin-top:-0.5rem"
+        to="/" >
         <img src="statics/icons/icon-128x128.png" class="avatar" style="height:40px; width:40px">
       </q-btn>
 

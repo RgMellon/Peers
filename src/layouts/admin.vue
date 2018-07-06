@@ -19,10 +19,27 @@
       side="left"
       v-model="leftSide"
     >
-      <!-- QScrollArea is optional -->
-      <q-scroll-area class="fit q-pa-sm">
-        <!-- Content here -->
-      </q-scroll-area>
+      <q-list no-border link inset-separator style="margin-top:4rem">
+      <q-list-header style="background:#ffc107;color: white;">
+          <q-btn flat dense round aria-label="logo" color="secondary" style="margin-top:-0.5rem"
+            to="/" >
+            <img src="statics/icons/icon-128x128.png" class="avatar" style="height:40px; width:40px">
+          </q-btn>
+          <span style="margin-left:2rem;"> MyPeers </span>
+      </q-list-header>
+      <q-item to="/adicionar/produto" style="margin-top:2rem">
+        <q-item-side icon="fas fa-plus-circle" />
+        <q-item-main label="Produtos" sublabel="Adicione um novo produto" />
+      </q-item>
+      <q-item to="/chat">
+        <q-item-side icon="fas fa-list-ul" />
+        <q-item-main label="Produtos" sublabel="ver produtos adicionados" />
+      </q-item>
+      <q-item to="/twitter">
+        <q-item-side icon="rss feed" />
+        <q-item-main label="Twitter" sublabel="@quasarframework" />
+      </q-item>
+    </q-list>
     </q-layout-drawer>
     <q-page-container>
       <router-view />

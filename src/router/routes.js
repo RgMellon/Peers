@@ -21,18 +21,13 @@ export default [
       { path: '', component: () => import('pages/loja') }
     ]
   },
-  {
-    path: '/teste',
-    component: () => import('layouts/default'),
-    children: [
-      { path: '', component: () => import('pages/teste') }
-    ]
-  },
+  
   {
     path: '/admin',
     component: () => import('layouts/admin'),
     children: [
-      { path: '', component: () => import('pages/dash') }
+      { path: '', component: () => import('pages/dash') },
+      { path: '/adicionar/produto', component: () => import('pages/add_produtos')}
     ]
   },
   { // Always leave this as last one
