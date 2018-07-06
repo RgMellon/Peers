@@ -2,7 +2,7 @@
   <div class="view-parallax">
     <parallax :fixed="true">
       <div v-if="this.img" class="row justify-center">
-        <img :src="`${img}`" style="height:250px; margin-top:3rem; width: 100%;">
+        <img :src="`${img}`" style="height:250px; margin-top:3rem;">
       </div>
       <div v-else class="no-img">
       </div>
