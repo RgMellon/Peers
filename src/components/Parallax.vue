@@ -1,8 +1,8 @@
 <template>
   <div class="view-parallax">
     <parallax :fixed="true">
-      <div v-if="this.img">
-        <img :src="`${img}`" style="height:250px; margin-top:3rem">
+      <div v-if="this.img" class="row justify-center">
+        <img :src="`${img}`" style="height:250px; margin-top:3rem; width: 100%;">
       </div>
       <div v-else class="no-img">
       </div>
@@ -31,7 +31,7 @@ export default {
 
 <style scoped>
   .content-parallax {
-    background-color: #fff; 
+    background-color: #fff;
     position:absolute;
     top:42%;
     width:100%;

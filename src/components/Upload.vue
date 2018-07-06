@@ -54,6 +54,6 @@ export default {
   }
  
   .cor-icone {
-    color: #d3c6c6c4;
+    color: #e6e4e4cc;
   }
 </style>
