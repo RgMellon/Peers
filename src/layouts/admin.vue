@@ -8,11 +8,11 @@
         color="amber"
       />
 
-      <q-toolbar-title style="color:black; font-weight: 200;">
-        Minha Loja
+      <q-toolbar-title style="color:black; font-weight: 200;" >
+        <router-link to="/admin" style="color:black;text-decoration:none "> Minha Loja </router-link>
       </q-toolbar-title>
 
-      <q-btn flat round dense color="purple" icon="mail" />
+      <q-btn flat round dense :to="{ name: 'add_prod'}" color="purple" icon="fas fa-plus-circle" />
       <q-btn flat round dense color="green" icon="alarm" />
     </q-toolbar>
     <q-layout-drawer

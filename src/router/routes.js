@@ -26,8 +26,9 @@ export default [
     path: '/admin',
     component: () => import('layouts/admin'),
     children: [
-      { path: '', component: () => import('pages/dash') },
-      { path: '/adicionar/produto', component: () => import('pages/add_produtos')}
+      { path: '', component: () => import('pages/admin//dash'), name: 'admin' },
+      { path: '/adicionar/produto',
+               component: () => import('pages/admin/add_produtos'), name: 'add_prod'}
     ]
   },
   { // Always leave this as last one

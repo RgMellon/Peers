@@ -12,9 +12,9 @@
 </template>
 
 <script>
-import Parallax from '../components/Parallax';
-import LojaInputs from '../components/admin/LojaInputs';
-import Upload from '../components/Upload';
+import Parallax from '../../components/Parallax';
+import LojaInputs from '../../components/admin/LojaInputs';
+import Upload from '../../components/Upload';
 export default {
   name: 'PageDashBoard',
   components: {

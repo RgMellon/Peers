@@ -2,7 +2,7 @@
   <q-page padding class="docs-input row justify-center">
     <q-alert icon="fas fa-user" class="info" color="info">
      Dica: Crie um perfil para melhor uma experiencia ;)
-    <router-link style="color:white;"to="/lojas"> Criar </router-link>
+    <router-link style="color:white;" to="/lojas"> Criar </router-link>
     </q-alert>
     <main style="width: 500px; max-width: 90vw; margin-top:4rem;">
       <section class="busca">
