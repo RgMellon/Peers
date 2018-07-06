@@ -2,7 +2,7 @@
   <div class="view-parallax">
     <parallax :fixed="true">
       <div v-if="this.img" class="row justify-center">
-        <img v-if="prod" :src="`${img}`" style="height:250px; margin-top:3rem;">
+        <img v-if="prod" :src="`${img}`" class="img-produto">
         <img v-else :src="`${img}`" style="height:250px; margin-top:3rem; width: 100%;">
       </div>
       <div v-else class="no-img">
@@ -36,5 +36,11 @@ export default {
     position:absolute;
     top:42%;
     width:100%;
+  }
+  .img-produto {
+    height:250px;
+    width:250px;
+    margin-top:3rem;
+    border-radius:80%;
   }
 </style>
