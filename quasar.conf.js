@@ -1,5 +1,3 @@
-// Configuration for your app
-
 module.exports = function (ctx) {
   return {
     // app plugins (/src/plugins)
@@ -72,7 +70,8 @@ module.exports = function (ctx) {
         'QPageSticky',
         'QFab',
         'QField',
-        'QInput'
+        'QInput',
+        'QChipsInput'
       ],
       directives: [
         'Ripple'

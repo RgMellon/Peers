@@ -17,14 +17,14 @@
     <q-field
       icon="fas fa-phone" style="margin-top:2rem;"
       icon-color="red"
-      label="Tel" >
-      <q-input v-model="tel" type="email"/>
+      label="Tel">
+      <q-input type="tel" v-model="tel"/>
     </q-field>
     <q-field
       icon="fab fa-whatsapp" style="margin-top:2rem;"
       icon-color="secondary"
       label="Whatsapp" >
-      <q-input v-model="wp" type="email"/>
+      <q-input v-model="wp" type="tel"/>
     </q-field>
     <q-btn :loading="loading1" color="primary" class="full-width" style="margin-top:2rem"
       @click="simulateProgress(1)" label="Salvar configurações" />
