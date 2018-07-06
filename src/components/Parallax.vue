@@ -38,7 +38,7 @@ export default {
     width:100%;
   }
   .img-produto {
-    height:250px;
+    height:100%;
     width:250px;
     margin-top:3rem;
   }
