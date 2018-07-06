@@ -3,7 +3,7 @@
     <upload @addFile="uploadFile" icon="fas fa-plus"
        size="80" class="btn-upload">
     </upload>
-    <parallax :img="this.file">
+    <parallax :img="this.file" :prod="true">
       <section slot="conteudo">
         <ProdutoInputs></ProdutoInputs>
       </section>
