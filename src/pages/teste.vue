@@ -4,7 +4,7 @@
            style="font-size: 1.2em; padding: 10px 0;"
            @change="setImage" />
 
-     <div style="width: 400px; height:300px; border: 1px solid gray; display: inline-block;">
+     <div style="width: 100%; height:300px; border: 1px solid gray; display: inline-block;">
       <vue-cropper
           ref='cropper'
           :guides="true"
@@ -20,8 +20,8 @@
           :img-style="{ 'width': '400px', 'height': '300px' }">
       </vue-cropper>
     </div>
-    <img :src="cropImg" style="width: 200px; height: 150px; border: 1px solid gray" alt="Cropped Image" />
-      <button @click="cropImage" v-if="imgSrc != ''" style="margin-right: 40px;">Crop</button>
+    <img :src="cropImg" style="width: 300px; height: 300px; border: 1px solid gray" alt="Cropped Image" />
+      <button @click="cropImage" v-if="imgSrc != ''" style="margin-right: 140px;">Crop</button>
       <button @click="rotate" v-if="imgSrc != ''">Rotate</button>
   </q-page>
 </template>
@@ -45,14 +45,12 @@ export default {
           return;
         }
         if (typeof FileReader === 'function') {
-          const reader = new FileReader();
-          reader.onload = (event) => {
-            this.imgSrc = event.target.result;
-            // rebuild cropperjs with the updated source
-            this.$refs.cropper.replace(event.target.result);
-          };
-          reader.readAsDataURL(file);
-        } else {
+            this.$createImg(e)
+              .then(res => this.imgSrc =  res)
+              .then(img => this.$refs.cropper.replace(img));
+            }
+
+         else {
           alert('Sorry, FileReader API not supported');
         }
       },
