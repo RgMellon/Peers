@@ -1,11 +1,8 @@
 <template>
   <q-page>
-    <upload @addFile="uploadFile" icon="fas fa-plus"
-       size="80" class="btn-upload">
-    </upload>
-    <parallax :img="this.file" :prod="true">
+   <parallax :img="this.file" :prod="true">
       <section slot="conteudo">
-        <ProdutoInputs></ProdutoInputs>
+        <ProdutoInputs @imgRetornada="imgUpload"></ProdutoInputs>
       </section>
     </parallax>
   </q-page>
@@ -13,13 +10,11 @@
 
 <script>
 import Parallax from '../../components/Parallax';
-import Upload from '../../components/Upload';
 import ProdutoInputs from  '../../components/admin/ProdutoInputs';
 export default {
   name: 'PageAddProduto',
   components: {
     'parallax' : Parallax,
-    'upload': Upload,
     ProdutoInputs
   },
   data () {
@@ -28,9 +23,10 @@ export default {
     }
   },
   methods: {
-    uploadFile(img){
+    imgUpload(img){
       this.file = img;
-    }
+    },
+
   },
 }
 </script>

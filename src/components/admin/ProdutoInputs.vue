@@ -1,57 +1,88 @@
 <template>
   <section class="inputs-produtos">
+    <!-- area do botao upload img -->
+      <div class="btn-upload shadow-2 row justify-center">
+        <upload @imgRetornada="imgDoUpload" icon="fas fa-plus"
+          size="30" class="self-center">
+        </upload>
+      </div>
+    <!-- fim -->
     <q-field style="margin-top:2rem;" label="Nome Produto" >
       <q-input v-model="nome" type="text"/>
     </q-field>
+
     <q-field
       icon="fas fa-dollar-sign" style="margin-top:2rem;"
       icon-color="green"
       label="Preço" >
       <q-input v-model="preco" type="tel"/>
     </q-field>
+
     <div style="margin-top:3rem;">
       <div style="color:red;">
         <q-input v-model="desc" type="textarea" placeholder="Descriçao do produto"/>
       </div>
     </div>
+
     <q-field>
       <q-chips-input style="margin-top:2rem;"
         v-model="tags"
         placeholder="Adicione suas Tags :)"
       />
     </q-field>
-    <q-btn :loading="loading1" color="primary" class="full-width" style="margin-top:2rem"
-      @click="simulateProgress(1)" label="Salvar Produto" />
+
+    <q-btn :loading="load" color="primary" class="full-width" style="margin-top:2rem"
+      @click="simulateProgress()" label="Salvar Produto" />
+
   </section>
 </template>
 
 <script>
+import Upload from '../../components/Upload';
 export default {
   name: 'InputProduto',
+  components: {
+    'upload': Upload,
+  },
   data () {
     return {
       tags: [],
       preco: '',
       nome: '',
       desc: '',
-      loading1: false,
+      load: false,
+      img: ''
     }
   },
   methods: {
-    simulateProgress (number) {
-      // we set loading state
-      this[`loading${number}`] = true
-      // simulate a delay
+    simulateProgress () {
+      this.load = true;
       setTimeout(() => {
-        // we're done, we reset loading state
         this[`loading${number}`] = false
       }, 3000)
-
+    },
+    imgDoUpload(img) {
+      this.img = img;
+      this.$emit('imgRetornada', this.img)
     }
   }
 
 }
 </script>
 
-<style>
+<style scoped>
+  .btn-upload {
+    background: #ffc107 ;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: absolute;
+    top: -35px;
+    right:7px;
+  }
+  @media screen and (min-height: 800px){
+    .btn-upload {
+      top: -95px;
+    }
+  }
 </style>

@@ -6,6 +6,7 @@
         <img v-else :src="`${img}`" style="height:100%; margin-top:3rem; width: 100%;">
       </div>
       <div v-else class="no-img">
+        <img src="statics/default.jpg" style="height:100%; margin-top:3rem; width: 100%;">
       </div>
     </parallax>
     <section class="content-parallax">
@@ -34,7 +35,7 @@ export default {
   .content-parallax {
     background-color: #fff;
     position:absolute;
-    top:42%;
+    top:41%;
     width:100%;
   }
   .img-produto {

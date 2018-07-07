@@ -1,7 +1,7 @@
 <template>
    <section class="editar-loja" style="margin-top:2rem;">
     <q-field class="margin-1rem">
-      <q-input v-model="nomeLoja" placeholder="Nome da loja"/>
+      <q-input v-model="nome" placeholder="Nome da loja"/>
     </q-field>
     <div style="margin-top:3rem;">
       <div style="color:red;">
@@ -26,8 +26,8 @@
       label="Whatsapp" >
       <q-input v-model="wp" type="tel"/>
     </q-field>
-    <q-btn :loading="loading1" color="primary" class="full-width" style="margin-top:2rem"
-      @click="simulateProgress(1)" label="Salvar configurações" />
+    <q-btn :loading="load" color="primary" class="full-width" style="margin-top:2rem"
+      @click="salvaDados()" label="Salvar configurações" />
   </section>
 </template>
 
@@ -36,24 +36,19 @@ export default {
   name: 'ComponentLojaCampos',
   data () {
     return {
-      nomeLoja:'',
+      nome: '',
       sobre: '',
       wp: '',
       tel: '',
       endereco: '',
-      loading1: false,
+      bairro: '',
+      load: false,
     }
   },
   methods: {
-    simulateProgress (number) {
-      // we set loading state
-      this[`loading${number}`] = true
-      // simulate a delay
-      setTimeout(() => {
-        // we're done, we reset loading state
-        this[`loading${number}`] = false
-      }, 3000)
-
+    salvaDados() {
+      this.load = true;
+      this.$storeLoja()
     }
   }
 }

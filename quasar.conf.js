@@ -4,7 +4,8 @@ module.exports = function (ctx) {
     plugins: [
       'axios',
       'redirecionaComLoad',
-      'createImg'
+      'createImg',
+      'storeLoja'
     ],
     css: [
       'app.styl'
@@ -71,7 +72,8 @@ module.exports = function (ctx) {
         'QFab',
         'QField',
         'QInput',
-        'QChipsInput'
+        'QChipsInput',
+        'QUploader'
       ],
       directives: [
         'Ripple'

@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <div :style="myIcon" class="cor-icone">
+    <div :style="sizeIcon" class="cor-icone">
       <label for="file-input" class="flex">
         <q-icon  :name="icon"/>
       </label>
@@ -20,30 +20,18 @@ export default {
     }
   },
   computed: {
-    myIcon(){
+    sizeIcon(){
       return `font-size:${this.size}px`;
     }
   },
   methods: {
-      devolveImg(boolean) {
-        this.escondeImg = boolean;
-      },
-      onFileChange(e) {
+    onFileChange(e) {
         this.$createImg(e)
           .then(res => {
             this.imagem = res;
-            this.$emit('addFile', this.imagem)
-              if(this.escondeImg == false){
-                this.imagem = false
-              }
-            }
-          );
+            this.$emit('imgRetornada', this.imagem)
+          });
       },
-      removeImage(e) {
-        this.imagem = '';
-        this.$emit('addFile', null);
-      },
-
     }
 }
 </script>
@@ -52,7 +40,7 @@ export default {
   #file-input{
     display: none;
   }
- 
+
   .cor-icone {
     color: #e6e4e4cc;
   }
