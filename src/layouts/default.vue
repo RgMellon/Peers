@@ -13,7 +13,7 @@
           <span style="font-family: 'Satisfy', cursive;"> MyPeers </span>
           <div slot="subtitle">Encontre seu par perfeito </div>
       </q-toolbar-title>
-       <q-btn flat color="black" round dense icon="more_vert"  to="/admin"/>
+       <q-btn flat color="black" round dense icon="more_vert"  to="/teste"/>
       </q-toolbar>
     </q-layout-header>
 
