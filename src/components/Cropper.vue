@@ -68,10 +68,13 @@ export default {
     cropImage() {
       this.load = true;
       new Promise((resolve, reject) => {
-        this.cropImg = this.$refs.cropper.getCroppedCanvas().toDataURL();
+        setTimeout(() => {
+           this.cropImg = this.$refs.cropper.getCroppedCanvas().toDataURL();
         this.$emit('imgCortada', this.cropImg)
         let c = false;
-        resolve(c);
+          resolve(c);
+        }, 2000)
+
       }).then(res => this.load = res);
 
     },
