@@ -29,7 +29,7 @@
         <img :src="cropImg" style="width: 100px; height: 100px;" />
       </div>
 
-      <q-btn :rounded="true" color="blue"
+      <q-btn :rounded="true" color="blue" :loading="load"
             style="height:50px;" icon="fas fa-cut"
             @click="cropImage" v-if="imgSrc != ''"/>
 
@@ -46,6 +46,7 @@ export default {
     return {
       imgSrc: '',
       cropImg: '',
+      load: false
     };
   },
   methods: {
@@ -58,15 +59,19 @@ export default {
       if (typeof FileReader === 'function') {
           this.$createImg(e)
             .then(res => this.imgSrc =  res)
-            .then(img => this.$refs.cropper.replace(img));
+            .then(img => this.$refs.cropper.replace(img))
           }
       else {
         alert('Desculpas, Erro');
       }
     },
     cropImage() {
-      this.cropImg = this.$refs.cropper.getCroppedCanvas().toDataURL();
-      this.$emit('imgCortada', this.cropImg)
+      this.load = true;
+      new Promise((resolve, reject) => {
+        this.cropImg = this.$refs.cropper.getCroppedCanvas().toDataURL();
+        this.$emit('imgCortada', this.cropImg)
+      }).then(this.load = false);
+
     },
     rotate() {
       this.$refs.cropper.rotate(90);
