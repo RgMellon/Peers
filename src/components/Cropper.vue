@@ -29,10 +29,11 @@
         <img :src="cropImg" style="width: 100px; height: 100px;" />
       </div>
 
-      <q-btn :rounded="true" color="blue" :loading="loading1"
+      <q-btn :rounded="true" color="blue"
             style="height:50px;" icon="fas fa-cut"
             @click="cropImage" v-if="imgSrc != ''"/>
-            {{ cropImg }}
+
+
     </div>
   </section>
 </template>
@@ -45,7 +46,6 @@ export default {
     return {
       imgSrc: '',
       cropImg: '',
-      loading1: false,
     };
   },
   methods: {
@@ -65,20 +65,14 @@ export default {
       }
     },
     cropImage() {
-      this.loading1 = true
       this.cropImg = this.$refs.cropper.getCroppedCanvas().toDataURL();
       this.$emit('imgCortada', this.cropImg)
-      this.pause(false)
-    },
-    pause(bool){
-      this.loading1 = bool;
     },
     rotate() {
       this.$refs.cropper.rotate(90);
       this.$emit('imgCortada', this.cropImg)
     },
-
-    },
+  },
   };
 </script>
 
