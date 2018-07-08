@@ -1,12 +1,6 @@
 <template>
   <section class="inputs-produtos">
-    <!-- area do botao upload img -->
-      <div class="btn-upload shadow-2 row justify-center">
-        <upload @imgRetornada="imgDoUpload" icon="fas fa-plus"
-          size="30" class="self-center">
-        </upload>
-      </div>
-    <!-- fim -->
+
     <q-field style="margin-top:2rem;" label="Nome Produto" >
       <q-input v-model="nome" type="text"/>
     </q-field>
@@ -20,7 +14,7 @@
 
     <div style="margin-top:3rem;">
       <div style="color:red;">
-        <q-input v-model="desc" type="textarea" placeholder="Descriçao do produto"/>
+        <q-input v-model="descricao" type="textarea" placeholder="Descriçao do produto"/>
       </div>
     </div>
 
@@ -32,7 +26,7 @@
     </q-field>
 
     <q-btn :loading="load" color="primary" class="full-width" style="margin-top:2rem"
-      @click="simulateProgress()" label="Salvar Produto" />
+      @click="salvaProdutos()" label="Salvar Produto" />
 
   </section>
 </template>
@@ -40,6 +34,7 @@
 <script>
 import Upload from '../../components/Upload';
 export default {
+  props: ['imgCropp'],
   name: 'InputProduto',
   components: {
     'upload': Upload,
@@ -49,22 +44,16 @@ export default {
       tags: [],
       preco: '',
       nome: '',
-      desc: '',
+      descricao: '',
       load: false,
-      img: ''
     }
   },
   methods: {
-    simulateProgress () {
+    salvaProdutos () {
       this.load = true;
-      setTimeout(() => {
-        this[`loading${number}`] = false
-      }, 3000)
+      this.$salvaProduto(this.imgCropp)
+        .then(res => this.load = false)
     },
-    imgDoUpload(img) {
-      this.img = img;
-      this.$emit('imgRetornada', this.img)
-    }
   }
 
 }

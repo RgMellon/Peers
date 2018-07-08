@@ -5,7 +5,8 @@ module.exports = function (ctx) {
       'axios',
       'redirecionaComLoad',
       'createImg',
-      'storeLoja'
+      'storeLoja',
+      'salvaProduto',
     ],
     css: [
       'app.styl'

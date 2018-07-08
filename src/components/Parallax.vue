@@ -39,7 +39,7 @@ export default {
     width:100%;
   }
   .img-produto {
-    height:100%;
+    height:250px;
     width:250px;
     margin-top:3rem;
   }
