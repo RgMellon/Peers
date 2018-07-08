@@ -32,6 +32,7 @@
       <q-btn :rounded="true" color="blue" :loading="loading1"
             style="height:50px;" icon="fas fa-cut"
             @click="cropImage" v-if="imgSrc != ''"/>
+            {{ cropImg }}
     </div>
   </section>
 </template>
@@ -64,10 +65,13 @@ export default {
       }
     },
     cropImage() {
-      this.loading1 = true;
+      this.loading1 = true
       this.cropImg = this.$refs.cropper.getCroppedCanvas().toDataURL();
       this.$emit('imgCortada', this.cropImg)
-      this.loading1 = false;
+      this.pause(false)
+    },
+    pause(bool){
+      this.loading1 = bool;
     },
     rotate() {
       this.$refs.cropper.rotate(90);
