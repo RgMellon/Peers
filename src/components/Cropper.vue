@@ -66,13 +66,18 @@ export default {
       }
     },
     cropImage() {
+      this.load = true;
        const getImt = () => {
         return new Promise((resolve, reject) => {
-          this.load = true;
-          this.cropImg = this.$refs.cropper.getCroppedCanvas().toDataURL();
+
+
+          setTimeout(() => {
+            this.cropImg = this.$refs.cropper.getCroppedCanvas().toDataURL();
           this.$emit('imgCortada', this.cropImg)
           let teste = false;
-          resolve(teste);
+            resolve(teste);
+          }, 5000)
+
         })
       }
       getImt()
