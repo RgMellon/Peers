@@ -66,11 +66,13 @@ export default {
       }
     },
     cropImage() {
+      this.load = true;
       new Promise((resolve, reject) => {
-        this.load = true;
         this.cropImg = this.$refs.cropper.getCroppedCanvas().toDataURL();
         this.$emit('imgCortada', this.cropImg)
-      }).then(res => this.load = false);
+        let c = false;
+        resolve(c);
+      }).then(res => this.load = res);
 
     },
     rotate() {
