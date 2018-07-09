@@ -60,8 +60,7 @@ export default {
       if (typeof FileReader === 'function') {
           this.$createImg(e)
             .then(res => res)
-            .then(img => this.$uploadImg(img))
-            .then(imgFinal => this.imgSrc = imgFinal.data)
+            .then(imgFinal => this.imgSrc = imgFinal)
             .then(imgF => this.$refs.cropper.replace(imgF))
           }
       else {
