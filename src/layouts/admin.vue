@@ -29,7 +29,7 @@
       </q-list-header>
       <q-item to="/adicionar/produto" style="margin-top:2rem">
         <q-item-side icon="fas fa-plus-circle" />
-        <q-item-main label="Produtos" sublabel="Adicione um novo produto" />
+        <q-item-main label="Adicionar Produtos" sublabel="Adicione um novo produto" />
       </q-item>
       <q-item :to="{ name: 'lista_prod'}">
         <q-item-side icon="fas fa-list-ul" />

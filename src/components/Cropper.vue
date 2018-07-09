@@ -6,8 +6,10 @@
       </label>
       <input id="file-input" type="file" accept="image/*" @change="setImage"/>
     </div>
-    <div style="width: 100%; height:300px; border: 1px solid gray; row justify-center">
-      <vue-cropper
+    <div style="width: 100%;
+      height:300px; background-image: url('statics/default.jpg');">
+      
+      <vue-cropper v-if="this.imgSrc"
         ref='cropper'
         :guides="true"
         :view-mode="2"
@@ -97,13 +99,13 @@ export default {
     display: none;
   }
   .btn-upload {
-    background: #d3d0d0;
+    background: #d3d0d04d;
     width: 60px;
     height: 60px;
     border-radius: 50%;
     color:white;
     position:absolute;
-    top:14%;
+    top:20%;
     left:42%;
   }
 </style>

@@ -1,46 +1,29 @@
 <template>
   <q-page>
-   <parallax :img="this.file" :prod="true">
-      <section slot="conteudo">
-        <ProdutoInputs @imgRetornada="imgUpload"></ProdutoInputs>
-      </section>
-    </parallax>
+    <cropper @imgCortada="mostraImg" style="padding-top:3.1rem;"> </cropper>
+    <div style="margin:0.5rem;">
+      <input-produtos :imgCropp="this.imgCropp"> </input-produtos>
+    </div>
   </q-page>
 </template>
 
 <script>
-import Parallax from '../../components/Parallax';
-import ProdutoInputs from  '../../components/admin/ProdutoInputs';
-export default {
-  name: 'PageAddProduto',
-  components: {
-    'parallax' : Parallax,
-    ProdutoInputs
-  },
-  data () {
-    return {
-      file: '',
-    }
-  },
-  methods: {
-    imgUpload(img){
-      this.file = img;
+  import Cropper from '../../components/Cropper';
+  import ProdutoInputs from  '../../components/admin/ProdutoInputs';
+  export default {
+    components:{
+      'cropper': Cropper,
+      'input-produtos': ProdutoInputs
     },
-
-  },
-}
-</script>
-
-<style scoped>
-.btn-upload {
-    background: #f8f6f900;
-    position: fixed;
-    top: 105px;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    display: flex;
-    justify-content: center;
-    color:red;
+    data() {
+      return {
+        imgCropp: '',
+      }
+    },
+    methods: {
+      mostraImg(img) {
+        this.imgCropp = img;
+      }
+    }
   }
-</style>
+</script>

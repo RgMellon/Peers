@@ -43,4 +43,7 @@ export default {
     width:250px;
     margin-top:3rem;
   }
+  .no-img {
+    height: 200px;
+  }
 </style>
