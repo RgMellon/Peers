@@ -7,6 +7,8 @@ module.exports = function (ctx) {
       'createImg',
       'storeLoja',
       'salvaProduto',
+      'uploadImg',
+      'path'
     ],
     css: [
       'app.styl'

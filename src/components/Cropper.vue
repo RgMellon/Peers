@@ -33,7 +33,7 @@
             style="height:50px;" icon="fas fa-cut"
             @click="cropImage" v-if="imgSrc != ''"/>
 
-
+  
     </div>
   </section>
 </template>
@@ -46,7 +46,8 @@ export default {
     return {
       imgSrc: '',
       cropImg: '',
-      load: false
+      load: false,
+      imgf: '',
     };
   },
   methods: {
@@ -58,8 +59,10 @@ export default {
       }
       if (typeof FileReader === 'function') {
           this.$createImg(e)
-            .then(res => this.imgSrc =  res)
-            .then(img => this.$refs.cropper.replace(img))
+            .then(res => res)
+            .then(img => this.$uploadImg(img))
+            .then(imgFinal => this.imgSrc = imgFinal.data)
+            .then(imgF => this.$refs.cropper.replace(imgF))
           }
       else {
         alert('Desculpas, Erro');
@@ -71,9 +74,9 @@ export default {
         return new Promise((resolve, reject) => {
           setTimeout(() => {
             this.cropImg = this.$refs.cropper.getCroppedCanvas().toDataURL();
-          this.$emit('imgCortada', this.cropImg)
-          let teste = false;
-            resolve(teste);
+            this.$emit('imgCortada', this.cropImg)
+            let load = false;
+            resolve(load);
           }, 1000)
 
         })

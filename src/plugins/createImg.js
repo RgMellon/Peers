@@ -7,7 +7,7 @@ export default ({ Vue }) => {
       reader.onload = (e) => {
         let imagem = e.target.result;
         resolve(imagem);
-        reject('erro ao criar imagrm (creatImg)')
+        reject('erro ao criar imagem (creatImg)')
       }
       reader.readAsDataURL(files[0]);
     });
