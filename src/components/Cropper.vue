@@ -66,9 +66,10 @@ export default {
         return;
       }
       if (typeof FileReader === 'function') {
+          this.loadImg = true;
           this.$createImg(e)
           .then(res => this.imgSrc = res)
-          .then(stop => this.loadImg = false;)
+          .then(stop => this.loadImg = false)
       } else {
         alert('Desculpa, erro ao importar img');
       }
