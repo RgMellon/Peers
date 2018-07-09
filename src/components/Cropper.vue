@@ -59,7 +59,7 @@ export default {
   },
   methods: {
     setImage(e) {
-       this.loadImg = true;
+      this.loadImg = true;
       const file = e.target.files[0];
       if (!file.type.includes('image/')) {
         alert('Por favor, selcione uma imagem.');
@@ -68,6 +68,7 @@ export default {
       if (typeof FileReader === 'function') {
           this.$createImg(e)
           .then(res => this.imgSrc = res)
+          .then(stop => this.loadImg = false;)
       } else {
         alert('Desculpa, erro ao importar img');
       }
