@@ -76,7 +76,7 @@ module.exports = function (ctx) {
         'QField',
         'QInput',
         'QChipsInput',
-        'QUploader'
+        'QPopover'
       ],
       directives: [
         'Ripple'
