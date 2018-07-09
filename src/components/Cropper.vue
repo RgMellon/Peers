@@ -1,14 +1,21 @@
 <template>
   <section class="cropper">
+    <!-- Botao Upload -->
     <div style="font-size:40px;" class="btn-upload row justify-center">
       <label for="file-input" class="flex">
-        <q-icon  name="fas fa-camera"/>
+        <q-icon  v-if="!this.loadImg" name="fas fa-camera"/>
       </label>
       <input id="file-input" type="file" accept="image/*" @change="setImage"/>
+       <div v-if="this.loadImg">
+          <q-spinner color="primary" size="40" />
+      </div>
     </div>
+    
+    <!-- Fim botao -->
+   
     <div style="width: 100%;
       height:300px; background-image: url('statics/default.jpg');">
-      
+
       <vue-cropper v-if="this.imgSrc"
         ref='cropper'
         :guides="true"
@@ -34,8 +41,6 @@
       <q-btn :rounded="true" color="blue" :loading="load"
             style="height:50px;" icon="fas fa-cut"
             @click="cropImage" v-if="imgSrc != ''"/>
-
-  
     </div>
   </section>
 </template>
@@ -49,11 +54,12 @@ export default {
       imgSrc: '',
       cropImg: '',
       load: false,
-      imgf: '',
+      loadImg: false
     };
   },
   methods: {
     setImage(e) {
+       this.loadImg = true;
       const file = e.target.files[0];
       if (!file.type.includes('image/')) {
         alert('Por favor, selcione uma imagem.');
@@ -61,12 +67,9 @@ export default {
       }
       if (typeof FileReader === 'function') {
           this.$createImg(e)
-            .then(res => res)
-            .then(imgFinal => this.imgSrc = imgFinal)
-            .then(imgF => this.$refs.cropper.replace(imgF))
-          }
-      else {
-        alert('Desculpas, Erro');
+          .then(res => this.imgSrc = res)
+      } else {
+        alert('Desculpa, erro ao importar img');
       }
     },
     cropImage() {
@@ -83,8 +86,7 @@ export default {
         })
       }
       getImt()
-        .then(res => this.load = res);
-
+      .then(res => this.load = res);
     },
     rotate() {
       this.$refs.cropper.rotate(90);

@@ -29,8 +29,9 @@
               <q-item-main label="Minha Loja" sublabel="Promova seus produtos" />
             </q-item>
             <q-item to="/chat">
-              <q-item-side icon="chat" />
-              <q-item-main label="Discord Chat Channel" sublabel="https://discord.gg/5TDhbDg" />
+              <q-item-side icon="chat" color="red-3"/>
+              <q-item-main style="color:black;" label="Entre em contato" 
+                  sublabel="Sugestões de melhoria / Bug " />
             </q-item>
             
           </q-list>
