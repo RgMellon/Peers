@@ -5,14 +5,12 @@
       <label for="file-input" class="flex">
         <q-icon  v-if="!this.loadImg" name="fas fa-camera"/>
       </label>
+       <q-spinner v-if="this.loadImg" color="primary" size="40" />
       <input id="file-input" type="file" accept="image/*" @change="setImage"/>
-       <div v-if="this.loadImg">
-          <q-spinner color="primary" size="40" />
-      </div>
     </div>
-    
+
     <!-- Fim botao -->
-   
+
     <div style="width: 100%;
       height:300px; background-image: url('statics/default.jpg');">
 
@@ -59,15 +57,14 @@ export default {
   },
   methods: {
     setImage(e) {
-      this.loadImg = true;
       const file = e.target.files[0];
+      this.loadImg = true;
       if (!file.type.includes('image/')) {
         alert('Por favor, selcione uma imagem.');
         return;
       }
       if (typeof FileReader === 'function') {
-          this.loadImg = true;
-          this.$createImg(e)
+        this.$createImg(e)
           .then(res => this.imgSrc = res)
           .then(stop => this.loadImg = false)
       } else {
