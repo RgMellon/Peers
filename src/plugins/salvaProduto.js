@@ -1,4 +1,6 @@
-import axios from 'axios'
+import axios from 'axios';
+import { pathUrl }  from './path';
+
 export default ({ app, router, Vue }) => {
   Vue.prototype.$salvaProduto = (img) => {
 
@@ -9,9 +11,9 @@ export default ({ app, router, Vue }) => {
       descricao: 'desc teste',
       loja_id: 1,
     }
-
-    return axios.post('http://localhost:8000/api/v1/produtos', data)
-              .then(res => res.data)
-              .catch(err => console.error(err));
+   
+    return  axios.post(`${pathUrl()}produtos`, data)
+        .then(res => res.data)
+        .catch(err => console.error(err));
   }
 }
