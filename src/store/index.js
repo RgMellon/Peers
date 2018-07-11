@@ -1,14 +1,15 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import example from './module-example'
+import tags from './tags/index'
 
 Vue.use(Vuex)
 
+import createPersistedState from 'vuex-persistedstate';
+
 const store = new Vuex.Store({
-  modules: {
-    example
-  }
+  modules: { tags },
+  plugins: [createPersistedState()],
 })
 
 export default store

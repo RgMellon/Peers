@@ -1,29 +1,53 @@
 <template>
   <q-page>
-    <cropper @imgCortada="mostraImg"> </cropper>
-    <div style="margin:0.5rem;">
-      <input-produtos :imgCropp="this.imgCropp"> </input-produtos>
-    </div>
+    <q-search v-model="terms" placeholder="Start typing a country name">
+      <q-autocomplete @search="search" />
+    </q-search>
+
+    <input type="text" class="" v-model="queryString" v-on:keyup="getResults()">
+     <ul>
+       <div v-if="this.queryString">
+          <li v-for="res of this.resultadoQuery">
+            {{res.tag}}
+          </li>
+        </div>
+      <div v-else>
+         Vazio como minha barriga
+      </div>
+     </ul>
+
   </q-page>
 </template>
 
 <script>
-  import Cropper from '../components/Cropper';
-  import ProdutoInputs from  '../components/admin/ProdutoInputs';
+  import { filter } from 'quasar'
+  import { mapGetters } from 'vuex';
   export default {
     components:{
-      'cropper': Cropper,
-      'input-produtos': ProdutoInputs
+
+    },
+    mounted() {
+     this.getTags().forEach(element => {
+      console.log(element.tag)
+     });
     },
     data() {
       return {
-        imgCropp: '',
+        queryString: '',
+        resultadoQuery: [],
+        terms: ''
       }
     },
     methods: {
-      mostraImg(img) {
-        this.imgCropp = img;
-      }
+      ...mapGetters({
+          getTags: 'getTags',
+      }),
+
+      search (terms, done) {
+        setTimeout(() => {
+          done(filter(terms, {field: 'value', list: this.getResults()}))
+        }, 1000)
+      },
     }
   }
 </script>

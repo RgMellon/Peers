@@ -51,7 +51,7 @@ export default {
   methods: {
     salvaProdutos () {
       this.load = true;
-      this.$salvaProduto(this.imgCropp)
+      this.$salvaProduto(this.imgCropp, this.nome, this.preco, this.descricao, this.tags)
         .then(res => this.load = false)
     },
   }

@@ -8,40 +8,38 @@
 </template>
 
 <script>
-import {filter } from 'quasar'
-import categorias from 'assets/autocomplete.json';
-
-
-
-function parseCountries () {
-  return categorias.map(country => {
-    return {
-      label: country,
-      sublabel: 'Label randomica',
-      icon: 'fas fa-hashtag',
-
-      value: country
-    }
-  })
-}
-
+import { filter } from 'quasar'
+import { mapGetters } from 'vuex';
 export default {
   data () {
     return {
       terms: '',
-      countries: parseCountries(),
       itemSelecionado: '',
     }
   },
   methods: {
     search (terms, done) {
       setTimeout(() => {
-        done(filter(terms, {field: 'value', list: parseCountries()}))
+        done(filter(terms, {field: 'value', list: this.parseCountries()}))
       }, 800)
     },
     selected (item) {
       this.$emit('selecionou');
     },
+    parseCountries () {
+      return this.getTags().map(element => {
+          return {
+          label: element.tag,
+          sublabel: 'Label randomica',
+          icon: 'fas fa-hashtag',
+
+          value: element.tag
+        }
+      })
+    },
+    ...mapGetters({
+        getTags: 'getTags',
+    }),
   }
 }
 </script>

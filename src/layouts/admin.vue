@@ -35,10 +35,7 @@
         <q-item-side icon="fas fa-list-ul" />
         <q-item-main label="Produtos" sublabel="ver produtos adicionados" />
       </q-item>
-      <q-item to="/twitter">
-        <q-item-side icon="rss feed" />
-        <q-item-main label="Twitter" sublabel="@quasarframework" />
-      </q-item>
+      
     </q-list>
     </q-layout-drawer>
     <q-page-container>

@@ -1,9 +1,9 @@
 <template>
   <div class="view-parallax">
     <parallax :fixed="true">
+     {{ this.img}}
       <div v-if="this.img" class="row justify-center">
-        <img v-if="prod" :src="`${img}`" class="img-produto">
-        <img v-else :src="`${img}`" style="height:100%; margin-top:3rem; width: 100%;">
+        <img  :src="`${img}`" style="height:100%; margin-top:3rem; width: 100%;">
       </div>
       <div v-else class="no-img">
         <img src="statics/default.jpg" style="height:100%; margin-top:3rem; width: 100%;">
@@ -21,7 +21,7 @@
 import Parallax from 'vue-parallaxy'
 export default {
   name: 'ComponentImageParallax',
-  props:['img', 'prod'],
+  props:['img'],
   components: {
     'parallax': Parallax,
   },

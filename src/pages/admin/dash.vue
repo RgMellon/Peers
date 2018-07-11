@@ -1,6 +1,6 @@
 <template>
   <q-page>
-    <upload @addFile="uploadFile" icon="fas fa-camera"
+    <upload v-if="!this.file" @imgCortada="uploadFile" icon="fas fa-camera"
        size="80" class="btn-upload">
     </upload>
     <parallax :img="this.file">

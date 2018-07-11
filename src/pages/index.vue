@@ -25,7 +25,7 @@
 import AutoComplete from '../components/AutoComplete';
 import dados from 'assets/dados.json';
 import Lista from '../components/ListaResultadosIndex';
-
+import { mapActions } from 'vuex';
 export default {
   name: 'PageIndex',
   components: {
@@ -38,12 +38,22 @@ export default {
       dados,
     }
   },
+  mounted() {
+    this.$axios.get(`${this.$path()}tags`)
+      .then(res => this.salvaTagsNoCache(res.data))
+  },
   methods: {
     mostraResultado(){
       this.mostra = true;
     },
     redireciona() {
       this.$redirecionaComLoad('/calcado/detalhes')
+    },
+    ...mapActions({
+       addTags : 'addTags'
+    }),
+    salvaTagsNoCache(tags){
+      this.addTags(tags);
     }
   }
 }

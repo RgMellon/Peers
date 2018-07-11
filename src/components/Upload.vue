@@ -16,7 +16,6 @@ export default {
   data () {
     return {
       imagem: '',
-      escondeImg: '',
     }
   },
   computed: {
@@ -26,13 +25,11 @@ export default {
   },
   methods: {
     onFileChange(e) {
-        this.$createImg(e)
-          .then(res => {
-            this.imagem = res;
-            this.$emit('imgRetornada', this.imagem)
-          });
-      },
-    }
+      this.$createImg(e)
+          .then(res => this.imagem = res)
+          .then(imgCortada => this.$emit('imgCortada', this.imagem))
+    },
+  }
 }
 </script>
 
