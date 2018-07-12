@@ -2,7 +2,7 @@
   <q-page class="view-parallax">
       <parallax :fixed="true">
         <div class="img-parallax">
-          <img :src="`http://localhost:8000/images/prod/${this.getProduto.img}`" alt=""
+          <img :src="`https://mypeers-api.herokuapp.com/images/prod/${this.getProduto.img}`" alt=""
             class="shadow-4" style="width:100%; padding:0.5rem;">
         </div>
       </parallax>
