@@ -20,7 +20,7 @@
         :view-mode="2"
         drag-mode="crop"
         :auto-crop-area="0.5"
-        :min-container-width="250"
+        :min-container-width="300"
         :min-container-height="180"
         :background="true"
         :rotatable="true"

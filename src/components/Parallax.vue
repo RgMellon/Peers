@@ -3,14 +3,15 @@
     <parallax :fixed="true">
      {{ this.img}}
       <div v-if="this.img" class="row justify-center">
-        <img  :src="`${img}`" style="height:100%; margin-top:3rem; width: 100%;">
+        <img  v-if="!this.prod" :src="`${img}`" style="height:100%; margin-top:3rem; width: 100%;">
+        <img  v-if="this.prod" :src="`${img}`" class="img-produto shadow-4">
       </div>
       <div v-else class="no-img">
         <img src="statics/default.jpg" style="height:100%; margin-top:3rem; width: 100%;">
       </div>
     </parallax>
     <section class="content-parallax">
-      <div style="padding:0.5rem;" class="column">
+      <div class="column">
         <slot name="conteudo"></slot>
       </div>
     </section>
@@ -21,7 +22,7 @@
 import Parallax from 'vue-parallaxy'
 export default {
   name: 'ComponentImageParallax',
-  props:['img'],
+  props:['img', 'prod'],
   components: {
     'parallax': Parallax,
   },
@@ -39,9 +40,8 @@ export default {
     width:100%;
   }
   .img-produto {
-    height:250px;
-    width:250px;
-    margin-top:3rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
   }
   .no-img {
     height: 200px;

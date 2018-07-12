@@ -1,6 +1,6 @@
 <template>
-<div>
-  <q-list inset-separator class="q-mt-md myshaddow">
+<div @click="produtoSelecionado()">
+  <q-list inset-separator class="q-mt-md myshaddow" >
     <q-item multiline>
       <q-item-side class="img-avatar"
         :avatar="`http://localhost:8000/images/prod/${this.img}`"/>
@@ -17,12 +17,27 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 export default {
   name: 'ListaComponent',
   props: ['nome', 'descricao', 'img', 'preco'],
   data () {
     return {}
   },
+  methods: {
+    ...mapActions({
+      detalheProduto : 'detalheProduto'
+    }),
+    produtoSelecionado() {
+      const objProd = {
+        img: this.img,
+        nome: this.nome,
+        preco: this.preco,
+        descricao: this.descricao
+      }
+      this.detalheProduto(objProd);
+    }
+  }
 }
 </script>
 

@@ -1,5 +1,5 @@
 <template>
-   <section class="editar-loja" style="margin-top:2rem;">
+   <section class="editar-loja" style="margin-top:2rem; padding: 0.5rem;">
     <q-field class="margin-1rem">
       <q-input v-model="nome" placeholder="Nome da loja"/>
     </q-field>

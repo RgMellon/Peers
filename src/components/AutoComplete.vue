@@ -23,8 +23,8 @@ export default {
         done(filter(terms, {field: 'value', list: this.parseCountries()}))
       }, 800)
     },
-    selected (item) {
-      this.$emit('selecionou');
+    selected(item) {
+      this.$emit('selecionou', item.id);
     },
     parseCountries () {
       return this.getTags().map(element => {
@@ -32,8 +32,8 @@ export default {
           label: element.tag,
           sublabel: 'Label randomica',
           icon: 'fas fa-hashtag',
-
-          value: element.tag
+          value: element.tag,
+          id: element.id
         }
       })
     },

@@ -1,7 +1,7 @@
 <template>
   <q-page>
     <parallax img="statics/fachada.jpeg">
-      <section slot="conteudo">
+      <section slot="conteudo" >
         <section class="info-loja padding column">
           <section class="titulo row justify-center">
             <h1> Nome Loja </h1>

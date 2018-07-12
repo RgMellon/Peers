@@ -8,7 +8,7 @@
       <section class="busca">
         <auto-complete @selecionou="mostraResultado" style="margin-top:2rem"></auto-complete>
       </section>
-      <section class="lista-itens" v-if="this.mostra" style="margin-top:2rem" @click="redireciona">
+      <section class="lista-itens" v-if="this.dados" style="margin-top:2rem" @click="redireciona">
         <lista v-for="i of this.dados" :key="i.id"
           :nome="i.nome" :descricao="i.descricao"
           :img="i.img" :preco="i.preco">
@@ -23,7 +23,6 @@
 
 <script>
 import AutoComplete from '../components/AutoComplete';
-import dados from 'assets/dados.json';
 import Lista from '../components/ListaResultadosIndex';
 import { mapActions } from 'vuex';
 export default {
@@ -35,7 +34,7 @@ export default {
   data () {
     return {
       mostra: false,
-      dados,
+      dados: {},
     }
   },
   mounted() {
@@ -43,8 +42,9 @@ export default {
       .then(res => this.salvaTagsNoCache(res.data))
   },
   methods: {
-    mostraResultado(){
-      this.mostra = true;
+    mostraResultado(item){
+       this.$axios.get(`${this.$path()}tag/${item}`)
+          .then(res => this.dados = res.data);
     },
     redireciona() {
       this.$redirecionaComLoad('/calcado/detalhes')

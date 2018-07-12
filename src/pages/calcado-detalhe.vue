@@ -1,84 +1,70 @@
 <template>
-  <section class="detalhe row justify-center">
-    <div class="area-img row justify-center">
-      <img src="statics/bota.jpg" class="img-detalhe shadow-up" style="width:150px" height="150px">
-    </div>
-    <section class="info-produto">
-      <div class="titulo row justify-center">
-        <h1> Lorem Ipsum</h1>
-      </div>
-      <div class="preco-produto row justify-center">
-        <p> R$ 550.00 </p>
-      </div>
-      <div class="descricao-produto q-pa-sm row">
-        <p>
-          Lorem ipsum dolor sit amet,
-          consectetur adipiscing elit.
-          Ut dapibus convallis lorem nec aliquet.
-          Curabitur vitae purus
-        </p>
-      </div>
-      <section class="detalhe">
-        <ul>
-          <li> Marrom </li>
-          <li> Coro </li>
-          <li> 100% legal</li>
-        </ul>
+  <q-page class="view-parallax">
+      <parallax :fixed="true">
+        <div class="img-parallax">
+          <img :src="`http://localhost:8000/images/prod/${this.getProduto.img}`" alt=""
+            class="shadow-4" style="width:100%; padding:0.5rem;">
+        </div>
+      </parallax>
+      <section class="content-parallax">
+      <section class="titulo row justify-center">
+        <h1> {{ this.getProduto.nome }}</h1>
+      </section>
+      <section class="preco row justify-center">
+        <p> R$ {{ this.getProduto.preco }} </p>
+      </section>
+      <section class="descricao row justify-center">
+        <p> {{ this.getProduto.descricao }} </p>
       </section>
     </section>
-    <section class="info-loja" style="margin-top:2rem; width:90%">
-      <div class="row justify-center sub-menu">
-      </div>
-      <modal></modal>
-    </section>
-    </section>
+    <modal style="position:fixed; bottom:0; right:0; left:0; margin-bottom:0px"> </modal>
+  </q-page>
 </template>
-
 
 <script>
 import Modal from '../components/Modal';
+import Parallax from 'vue-parallaxy'
+import { mapGetters } from 'vuex';
+
 export default {
   name: 'PaginaDetalheCalcado',
   components: {
     modal: Modal,
+    'parallax' : Parallax
   },
+  computed: {
+    ...mapGetters({
+      getProduto: 'getProduto'
+    }),
+
+  }
 }
 </script>
 
 <style scoped>
 
-  .img-detalhe {
-    width: 250px;
-    position: relative;
-    top: 30px;
-    border-radius: 44px;
-    display: flex;
-    justify-content: center;
-  }
-  .area-img{
-    background:#E8D23E;
+  .content-parallax {
+    background-color: #fff;
+    position:absolute;
+    margin-top: -8rem;
     width:100%;
-    height: 110px;
+    padding: 0.5rem;
   }
-  .info-produto{
-    margin-top: 3rem;
+  .preco{
+    font-size: 1.2rem;
+    color: gray;
+  }
+  .img-parallax {
+    width: 100%;
+    margin-top:3rem;
+  }
+
+  .descricao{
+    text-align: left;
+    margin-left: 0.6rem;
   }
   .titulo h1{
-    font-size: 1.8rem;
-    color: #9E9E9E;
-  }
-  .descricao-produto{
-    margin-left: 4%;
-  }
-  .descricao-produto p {
-    text-align: left;
-  }
-  .preco-produto {
-    font-size: 1.3rem;
-    color: #514e4e;
-  }
-  .sub-menu {
-    color: #9E9E9E;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+    color:#027be3;
   }
 </style>

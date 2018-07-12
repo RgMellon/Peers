@@ -1,13 +1,13 @@
 <template>
   <div>
-    <p class="caption" style="text-align: center;">
+    <p class="caption" style="text-align: center; margin-top:1rem">
       Veja informações do vendedor
     </p>
     <q-btn
       @click="actionSheet = true"
       label="Me Mostrar"
       class="full-width"
-      style="background: #2196F3; color: white; margin-bottom:1rem;"
+      style="background: #2196F3; color: white;"
     />
 
     <q-action-sheet style="min-height:0px;"
