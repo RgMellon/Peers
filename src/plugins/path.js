@@ -1,4 +1,4 @@
-const ambiente = 'dev';
+const ambiente = 'prod';
 
 export default ({ app, router, Vue }) => {
   Vue.prototype.$path = () => {
