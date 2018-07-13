@@ -8,7 +8,8 @@ module.exports = function (ctx) {
       'storeLoja',
       'salvaProduto',
       'uploadImg',
-      'path'
+      'path',
+      'cropper'
     ],
     css: [
       'app.styl'

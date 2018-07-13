@@ -18,14 +18,16 @@
         ref='cropper'
         :guides="true"
         :view-mode="2"
-        drag-mode="crop"
+        drag-mode="none"
         :auto-crop-area="0.5"
         :min-container-width="300"
-        :min-container-height="180"
+        :aspectRatio="1"
         :background="true"
         :rotatable="true"
         :src="imgSrc"
+        :viewMode="1"
         alt="Source Image"
+        :highlight="true"
         :img-style="{ 'width': '300px', 'height': '300px' }">
       </vue-cropper>
     </div>
