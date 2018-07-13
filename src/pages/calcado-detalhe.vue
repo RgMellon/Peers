@@ -2,22 +2,25 @@
   <q-page class="view-parallax">
       <parallax :fixed="true">
         <div class="img-parallax">
-          <img :src="`https://mypeers-api.herokuapp.com/images/prod/${this.getProduto.img}`" alt=""
+          <img :src="`${this.$pathImg()}${this.getProduto.img}`" alt=""
             class="shadow-4" style="width:100%; padding:0.5rem;">
         </div>
       </parallax>
       <section class="content-parallax">
-      <section class="titulo row justify-center">
-        <h1> {{ this.getProduto.nome }}</h1>
+        <section class="titulo row justify-center">
+          <h1> {{ this.getProduto.nome }}</h1>
+        </section>
+        <section class="preco row justify-center">
+          <p> R$ {{ this.getProduto.preco }} </p>
+        </section>
+        <section class="descricao row justify-center">
+          <p> {{ this.getProduto.descricao }} </p>
+        </section>
+
+        <section class="info-loja">
+          <modal/>
+        </section>
       </section>
-      <section class="preco row justify-center">
-        <p> R$ {{ this.getProduto.preco }} </p>
-      </section>
-      <section class="descricao row justify-center">
-        <p> {{ this.getProduto.descricao }} </p>
-      </section>
-    </section>
-    <modal style="position:fixed; bottom:0; right:0; left:0; margin-bottom:0px"> </modal>
   </q-page>
 </template>
 
@@ -66,5 +69,8 @@ export default {
   .titulo h1{
     font-size: 1.5rem;
     color:#027be3;
+  }
+  .info-loja {
+
   }
 </style>

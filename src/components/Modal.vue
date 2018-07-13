@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p class="caption" style="text-align: center; margin-top:1rem">
+    <p class="caption" style="text-align: center; ">
       Veja informações do vendedor
     </p>
     <q-btn
