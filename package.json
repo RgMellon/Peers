@@ -1,8 +1,8 @@
 {
   "name": "projeto-calcados",
   "version": "1.0.0",
-  "description": "A Quasar Framework app",
-  "productName": "Quasar App",
+  "description": "App marktplace de calçados",
+  "productName": "MyPeers",
   "cordovaId": "org.cordova.quasar.app",
   "author": "Renan <renan_gian@hotmail.com>",
   "private": true,
@@ -14,7 +14,6 @@
   "dependencies": {
     "axios": "^0.18.0",
     "connect-history-api-fallback": "^1.5.0",
-    "croppie": "^2.6.2",
     "express": "^4.16.3",
     "serve-static": "^1.13.2",
     "vue-cropperjs": "^2.2.1",

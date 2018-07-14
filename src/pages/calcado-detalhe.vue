@@ -1,21 +1,21 @@
 <template>
-  <q-page class="view-parallax">
+  <q-page padding class="text-center">
       <parallax :fixed="true">
         <div class="img-parallax">
           <img :src="`${this.$pathImg()}${this.getProduto.img}`" alt=""
             class="shadow-4" style="width:100%; padding:0.5rem;">
         </div>
       </parallax>
-      <section class="content-parallax">
-        <section class="titulo row justify-center">
+      <section class="content-parallax" style="width:97%;">
+        <section class="titulo">
           <h1> {{ this.getProduto.nome }}</h1>
         </section>
-        <section class="preco row justify-center">
+        <section class="preco">
           <p> R$ {{ this.getProduto.preco }} </p>
         </section>
-        <section class="descricao row justify-center">
-          <p> {{ this.getProduto.descricao }} </p>
-        </section>
+        <div style="word-wrap: break-word;">
+         <p class="caption"> {{ this.getProduto.descricao }} </p>
+        </div>
 
         <section class="info-loja">
           <modal/>
@@ -63,8 +63,6 @@ export default {
   }
 
   .descricao{
-    text-align: left;
-    margin-left: 0.6rem;
   }
   .titulo h1{
     font-size: 1.5rem;
