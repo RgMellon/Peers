@@ -1,14 +1,14 @@
 <template>
   <section>
-    <q-input v-model="user" 
+    <q-input v-model="name"
       float-label="Nome" placeholder="Digite o nome de usuario" />
-    
+
     <div class="email">
       <q-input v-model="email" type="email" float-label="Email" />
     </div>
-    
+
     <div class="password">
-      <q-input v-model="senha" type="password" float-label="Senha" />
+      <q-input v-model="password" type="password" float-label="Senha" />
     </div>
 
     <div class="password">
@@ -19,25 +19,47 @@
       @click="cadastra()" label="Cadastrar" />
   </section>
 
- 
+
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 export default {
   name: 'ComponentCadastro',
   data () {
     return {
-      user: '',
-      senha: '',
+      name: '',
+      password: '',
       senhaConfirmada: '',
       email: '',
       load: false,
     }
   },
   methods: {
+    ...mapActions({
+      setUsuario: 'setUsuario',
+    }),
     cadastra() {
       this.load = true;
-      console.log('oi');
+      const data = {
+        name: this.name,
+        password: this.password,
+        email: this.email,
+        password_confirmation: this.senhaConfirmada
+      }
+      this.$axios.post(`${this.$pathUser()}register`, data)
+        .then(res => res.data)
+        .then(data => {
+          return {
+            nome: this.name,
+            email: this.email,
+            token: data.access_token,
+            refresh_token: data.refresh_token
+          }
+        })
+        .then(usuario => this.setUsuario(usuario))
+        .then(stopLoad => this.load = false)
+        .catch(err => console.error(err.message));
     }
   }
 }

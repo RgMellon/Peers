@@ -8,6 +8,10 @@ export default ({ app, router, Vue }) => {
   Vue.prototype.$pathImg = () => {
     return ambiente == 'dev' ? 'http://localhost:8000/images/prod/' : 'https://mypeers-api.herokuapp.com/images/prod/'
   }
+
+  Vue.prototype.$pathUser = () => {
+    return ambiente == 'dev' ? 'http://localhost:8000/api/' : 'https://mypeers-api.herokuapp.com/api/'
+  }
 }
 
 export const  pathUrl = () => {

@@ -32,7 +32,7 @@ export default [
     path: '/admin',
     component: () => import('layouts/admin'),
     children: [
-      { path: '', component: () => import('pages/admin//dash'), name: 'admin' },
+      { path: '', component: () => import('pages/admin/dash'), name: 'admin' },
       { path: '/adicionar/produto',
               component: () => import('pages/admin/add_produtos'), name: 'add_prod'},
       { path: '/lista/produtos',
@@ -43,10 +43,13 @@ export default [
     path: '/autenticacao',
     component: () => import('layouts/detalhes'),
     children: [
-      { path: '/autenticacao/cadastro', component: () => import('pages/autenticacao/cadastro')
-                                                                , name: 'cadastro' }
+      { path: '/autenticacao/cadastro', component: () => import('pages/autenticacao/cadastro'), name: 'cadastro' },
+      { path: '', component: () => import('pages/autenticacao/usuario'), name: 'ususario'},
     ]
   },
+  // só posso entrar aqui, se estiver logado.
+  // essa é a rota do usuario
+
   { // Always leave this as last one
     path: '*',
     component: () => import('pages/404')
