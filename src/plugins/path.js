@@ -10,7 +10,7 @@ export default ({ app, router, Vue }) => {
   }
 
   Vue.prototype.$pathUser = () => {
-    return ambiente == 'dev' ? 'http://localhost:8000/api/' : 'https://mypeers-api.herokuapp.com/api/'
+    return ambiente == 'dev' ? 'http://localhost:8000/api/' : 'https://mypeers-api.herokuapp.com/api/register'
   }
 }
 
