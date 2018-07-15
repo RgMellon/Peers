@@ -1,12 +1,11 @@
 <template>
-  <q-page padding class="text-center">
-      <parallax :fixed="true">
-        <div class="img-parallax">
-          <img :src="`${this.$pathImg()}${this.getProduto.img}`" alt=""
-            class="shadow-4" style="width:100%; padding:0.5rem;">
-        </div>
-      </parallax>
-      <section class="content-parallax" style="width:97%;">
+  <q-page class="text-center page">
+      <div class="area-img shadow-4 row justify-center" style="width:100%">
+        <vue-galeria :img="[`${this.$pathImg()}${this.getProduto.img}`]" alt=""
+       />
+      </div>
+
+      <section class="content" style="width:97%;">
         <section class="titulo">
           <h1> {{ this.getProduto.nome }}</h1>
         </section>
@@ -26,14 +25,14 @@
 
 <script>
 import Modal from '../components/Modal';
-import Parallax from 'vue-parallaxy'
 import { mapGetters } from 'vuex';
+import vueGaleria from '../components/vueGaleria';
 
 export default {
   name: 'PaginaDetalheCalcado',
   components: {
     modal: Modal,
-    'parallax' : Parallax
+    'vue-galeria': vueGaleria,
   },
   computed: {
     ...mapGetters({
@@ -46,29 +45,25 @@ export default {
 
 <style scoped>
 
-  .content-parallax {
+  .content {
     background-color: #fff;
     position:absolute;
-    margin-top: -8rem;
     width:100%;
     padding: 0.5rem;
+    margin-top:1rem;
   }
   .preco{
     font-size: 1.2rem;
     color: gray;
   }
-  .img-parallax {
-    width: 100%;
-    margin-top:3rem;
-  }
 
-  .descricao{
-  }
+
   .titulo h1{
     font-size: 1.5rem;
     color:#027be3;
   }
-  .info-loja {
 
+  .area-img, .page{
+    padding: 0.5rem;
   }
 </style>

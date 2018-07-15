@@ -1,7 +1,9 @@
 <template>
   <q-page padding class="text-center">
-      <vue-galeria>
+     <div class="img-parallax">
+      <vue-galeria :img="[`${this.$pathImg()}${this.getProduto.img}`]">
       </vue-galeria>
+    </div>
       <section class="content-parallax" style="width:97%;">
         <section class="titulo">
           <h1> {{ this.getProduto.nome }}</h1>
@@ -46,8 +48,6 @@ export default {
 
   .content-parallax {
     background-color: #fff;
-    position:absolute;
-    margin-top: -8rem;
     width:100%;
     padding: 0.5rem;
   }

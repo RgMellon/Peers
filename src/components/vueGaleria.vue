@@ -1,12 +1,12 @@
 <template>
   <div>
-    <gallery :images="images" :index="index" @close="index = null"></gallery>
+    <gallery :images="this.img" :index="index" @close="index = null"></gallery>
     <div
       class="image"
-      v-for="(image, imageIndex) in images"
+      v-for="(image, imageIndex) in this.img"
       :key="imageIndex"
       @click="index = imageIndex"
-      :style="{ backgroundImage: 'url(' + image + ')', width: '330px', height: '400px' }"
+      :style="{ backgroundImage: 'url(' + image + ')', width: '318px', height: '300px' }"
     ></div>
   </div>
 </template>
@@ -15,11 +15,11 @@
   import VueGallery from 'vue-gallery';
 
   export default {
+    props: ['img'],
     data: function () {
       return {
         images: [
           'https://mypeers-api.herokuapp.com/images/prod/1531684362_5b4ba60a26d42.jpeg'
-
         ],
         index: null
       };
