@@ -39,6 +39,14 @@ export default [
               component: () => import('pages/admin/lista_produtos'), name: 'lista_prod'}
     ]
   },
+  {
+    path: '/autenticacao',
+    component: () => import('layouts/detalhes'),
+    children: [
+      { path: '/autenticacao/cadastro', component: () => import('pages/autenticacao/cadastro')
+                                                                , name: 'cadastro' }
+    ]
+  },
   { // Always leave this as last one
     path: '*',
     component: () => import('pages/404')
