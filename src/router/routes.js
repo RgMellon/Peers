@@ -41,7 +41,7 @@ export default [
   },
   {
     path: '/autenticacao',
-    component: () => import('layouts/detalhes'),
+    component: () => import('layouts/usuario'),
     children: [
       { path: '/autenticacao/cadastro', component: () => import('pages/autenticacao/cadastro'), name: 'cadastro' },
       { path: '', component: () => import('pages/autenticacao/usuario'), name: 'ususario'},
