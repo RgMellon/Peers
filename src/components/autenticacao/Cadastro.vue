@@ -49,7 +49,7 @@ export default {
       }
       this.$axios.post('https://mypeers-api.herokuapp.com/api/register', data)
         .then(res => res.data)
-        then(dados => console.log(dados))
+        .then(dados => console.log(dados))
         // .then(redireciona => this.$router.push('/autenticacao'))
         .catch(err => console.error(err.message));
     }
