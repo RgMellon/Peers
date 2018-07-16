@@ -47,7 +47,7 @@ export default {
         email: this.email,
         password_confirmation: this.senhaConfirmada
       }
-      this.$axios.post('http://localhost:8000/api/register', data)
+      this.$axios.post('http://mypeers-api.herokuapp.com/api/register', data)
         .then(res => res.data)
         .then(data => {
           localStorage.setItem('usuario', JSON.stringify({
