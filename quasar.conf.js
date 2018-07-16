@@ -9,7 +9,8 @@ module.exports = function (ctx) {
       'salvaProduto',
       'uploadImg',
       'path',
-      'cropper'
+      'cropper',
+      'verificaSeEstaLogado'
     ],
     css: [
       'app.styl'

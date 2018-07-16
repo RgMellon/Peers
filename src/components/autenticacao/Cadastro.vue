@@ -47,18 +47,15 @@ export default {
         email: this.email,
         password_confirmation: this.senhaConfirmada
       }
-      this.$axios.post('https://mypeers-api.herokuapp.com/api/register', data)
+      this.$axios.post('http://localhost:8000/api/register', data)
         .then(res => res.data)
         .then(data => {
-          return {
-            nome: this.name,
-            email: this.email,
-            token: data.access_token,
+          localStorage.setItem('usuario', JSON.stringify({
+            'nome' : this.nome,
+            'token' : data.access_token,
             refresh_token: data.refresh_token
-          }
-        })
-        .then(usuario => this.setUsuario(usuario))
-        .then(stopLoad => this.load = false)
+          }))})
+        .then(redireciona => this.$router.push('/autenticacao'))
         .catch(err => console.error(err.message));
     }
   }

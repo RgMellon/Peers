@@ -13,7 +13,7 @@
     <div class="lojas-favoritas" v-if="loja">
       AREA DAS LOJAS
     </div>
-    OLAAR {{ this.usuario.nome }}
+    OLAAR
   </q-page>
 </template>
 
