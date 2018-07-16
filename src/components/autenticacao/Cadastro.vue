@@ -51,9 +51,9 @@ export default {
         .then(res => res.data)
         .then(data => {
           localStorage.setItem('usuario', JSON.stringify({
-            'nome' : this.nome,
+            'nome' : this.name,
             'token' : data.access_token,
-            refresh_token: data.refresh_token
+            'refresh_token': data.refresh_token
           }))})
         .then(redireciona => this.$router.push('/autenticacao'))
         .catch(err => console.error(err.message));
