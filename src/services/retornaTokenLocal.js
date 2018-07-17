@@ -1,5 +1,5 @@
 export const retornaTokenLocal = () => {
-  const usuario = localStorage.getItem('usuario');
+  const usuario = localStorage.getItem('usuarios');
   if(usuario === null){
     return false;
   }else{

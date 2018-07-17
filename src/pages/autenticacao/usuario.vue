@@ -13,7 +13,6 @@
     <div class="lojas-favoritas" v-if="loja">
       AREA DAS LOJAS
     </div>
-    OLAAR
   </q-page>
 </template>
 
