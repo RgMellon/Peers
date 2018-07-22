@@ -20,21 +20,21 @@
       />
       <q-layout-drawer side="right"  v-model="showRight">
           <q-list no-border link inset-separator>
-            <q-item to="/teste" style="color:black;">
-              <q-item-side icon="fab fa-gratipay" color="amber" />
-              <q-item-main label="Sapatos Favoritos"
-                          sublabel="Veja seus sapatos favoritos" />
-            </q-item>
-            <q-item to="/admin" style="color:black;">
+           <q-item to="/admin" style="color:black;">
               <q-item-side color="primary" icon="fas fa-store" />
-              <q-item-main label="Minhas Lojas Favoritas"
-                            sublabel="Veja suas lojas marcadas como favorita" />
+              <q-item-main label="Minha Loja"
+                sublabel="Administre sua loja" />
             </q-item>
+
             <q-item to="/chat">
               <q-item-side icon="chat" color="red-3"/>
               <q-item-main style="color:black;" label="Entre em contato"
                   sublabel="Sugestões de melhoria / Bug " />
             </q-item>
+
+            <q-btn  color="primary"
+            class="full-width fixed-bottom absolute-bottom"
+            @click="sair()" label="Sair" />
 
           </q-list>
       </q-layout-drawer>
@@ -48,7 +48,9 @@
 </template>
 
 <script>
-import { openURL } from 'quasar'
+import Storage from '../services/localStorage';
+import { openURL } from 'quasar';
+
 export default {
   name: 'LayoutDefault',
   data () {
@@ -58,7 +60,11 @@ export default {
     }
   },
   methods: {
-    openURL
+    openURL,
+    sair() {
+      localStorage.removeItem('usuarios');
+      this.$router.push('/');
+    }
   }
 }
 </script>

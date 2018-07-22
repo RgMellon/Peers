@@ -21,7 +21,7 @@ export default {
     search (terms, done) {
       setTimeout(() => {
         done(filter(terms, {field: 'value', list: this.parseCountries()}))
-      }, 800)
+      }, 500)
     },
     selected(item) {
       this.$emit('selecionou', item.id);

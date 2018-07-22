@@ -20,7 +20,7 @@
 import { mapActions } from 'vuex';
 export default {
   name: 'ListaComponent',
-  props: ['nome', 'descricao', 'img', 'preco'],
+  props: ['nome', 'descricao', 'img', 'preco', 'id'],
   data () {
     return {}
   },
@@ -33,7 +33,8 @@ export default {
         img: this.img,
         nome: this.nome,
         preco: this.preco,
-        descricao: this.descricao
+        descricao: this.descricao,
+        id: this.id
       }
       this.detalheProduto(objProd);
     }

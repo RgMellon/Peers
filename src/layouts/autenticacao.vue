@@ -13,14 +13,9 @@
           <div slot="subtitle"> Encontre seu par perfeito </div>
       </q-toolbar-title>
 
-      <q-btn style="font-size:1.1rem"
-        flat round dense
-        icon="fas fa-user-circle q-item-icon "
-        color='grey'
-        :to="{ name: 'ususario'}"
-      />
     </q-toolbar>
     </q-layout-header>
+
     <q-page-container>
       <router-view />
     </q-page-container>
@@ -33,6 +28,8 @@ export default {
   name: 'LayoutDefault',
   data () {
     return {
+      leftDrawerOpen: this.$q.platform.is.desktop,
+      showRight: true
     }
   },
   methods: {

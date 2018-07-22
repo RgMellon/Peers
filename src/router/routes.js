@@ -22,10 +22,11 @@ export default [
     ]
   },
   {
-    path: '/teste',
-    component: () => import('layouts/detalhes'),
+    path: '/usuario',
+    component: () => import('layouts/usuario'),
     children: [
-      { path: '', component: () => import('pages/teste') }
+      { path: '', meta: {requiresAuth: true},
+        component: () => import('pages/autenticacao/usuario'), name: 'ususario'},
     ]
   },
   {
@@ -41,11 +42,10 @@ export default [
   },
   {
     path: '/autenticacao',
-    component: () => import('layouts/usuario'),
+    component: () => import('layouts/autenticacao'),
     children: [
       { path: '/autenticacao/cadastro', component: () => import('pages/autenticacao/cadastro'), name: 'cadastro' },
-      { path: '', meta: {requiresAuth: true},
-        component: () => import('pages/autenticacao/usuario'), name: 'ususario'},
+      { path: '/autenticacao/login', component: () => import('pages/autenticacao/login'), name: 'login' },
     ]
   },
   // só posso entrar aqui, se estiver logado.

@@ -1,35 +1,34 @@
 <template>
   <q-page padding class="docs-input row justify-center">
-    <q-alert icon="fas fa-user" class="info" color="info">
-     Dica: Crie um perfil para uma melhor experiência ;)
-    <router-link style="color:white;" :to="{ name: 'cadastro',}"> Criar </router-link>
-    </q-alert>
-    <main style="width: 500px; max-width: 90vw; margin-top:4rem;">
+    <info/>
+    <div style="width: 500px; max-width: 90vw; margin-top:4rem;">
       <section class="busca">
         <auto-complete @selecionou="mostraResultado" style="margin-top:2rem"></auto-complete>
       </section>
+
       <section class="lista-itens" v-if="this.dados" style="margin-top:2rem" @click="redireciona">
+
         <lista v-for="i of this.dados" :key="i.id"
           :nome="i.nome" :descricao="i.descricao"
-          :img="i.img" :preco="i.preco">
+          :img="i.img" :preco="i.preco" :id="i.id">
         </lista>
+
       </section>
-    </main>
+    </div>
   </q-page>
 </template>
-
-<style>
-</style>
-
 <script>
 import AutoComplete from '../components/AutoComplete';
+import TesteAuth from '../components/TesteAuth';
 import Lista from '../components/ListaResultadosIndex';
 import { mapActions } from 'vuex';
+import Info from '../components/Info';
 export default {
   name: 'PageIndex',
   components: {
     'auto-complete' : AutoComplete,
     'lista': Lista,
+    'info': Info,
   },
   data () {
     return {
@@ -52,6 +51,7 @@ export default {
     ...mapActions({
        addTags : 'addTags'
     }),
+
     salvaTagsNoCache(tags){
       this.addTags(tags);
     }

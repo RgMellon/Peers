@@ -1,12 +1,6 @@
 <template>
   <q-page padding >
-    <section class="logo text-center" >
-      <img src="statics/icons/icon-256x256.png"
-           alt="logo" style="width:150px; border-radius:50%;" class="shadow-4">
-    </section>
-    <section class="frase text-center">
-      <p> Junte se à myPeers </p>
-    </section>
+   <header-cadastro-login/>
     <section class="cadastro text-center">
       <h1> Cadastro </h1>
     </section>
@@ -18,21 +12,19 @@
 
 <script>
 import Cadastro from '../../components/autenticacao/Cadastro'
+import HeaderLoginCadastro from '../../components/HeaderLoginCadastro'
 export default {
   name: 'PageCadastro',
   components: {
-    'form-cadastro': Cadastro
+    'form-cadastro': Cadastro,
+    'header-cadastro-login': HeaderLoginCadastro
   }
 }
 </script>
 
 <style scroped>
-  .logo {}
-  .frase{
-    margin-top:1rem;
-    font-size:1.2rem;
 
-  }
+
   .form-cadastro{
     margin-top: 2rem;
 

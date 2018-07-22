@@ -1,46 +1,31 @@
 <template>
   <q-page padding class="text-center">
-     <div class="img-parallax">
-      <vue-galeria :img="[`${this.$pathImg()}${this.getProduto.img}`]">
-      </vue-galeria>
-    </div>
-      <section class="content-parallax" style="width:97%;">
-        <section class="titulo">
-          <h1> {{ this.getProduto.nome }}</h1>
-        </section>
-        <section class="preco">
-          <p> R$ {{ this.getProduto.preco }} </p>
-        </section>
-        <div style="word-wrap: break-word;">
-         <p class="caption"> {{ this.getProduto.descricao }} </p>
-        </div>
 
-        <section class="info-loja">
-          <modal/>
-        </section>
-      </section>
   </q-page>
 </template>
 
 <script>
-import Modal from '../components/Modal';
-import Parallax from 'vue-parallaxy'
-import vueGaleria from '../components/vueGaleria';
-import { mapGetters } from 'vuex';
+
 
 export default {
   name: 'PaginaDetalheCalcado',
   components: {
-    modal: Modal,
-    'parallax' : Parallax,
-    'vue-galeria': vueGaleria,
-  },
-  computed: {
-    ...mapGetters({
-      getProduto: 'getProduto'
-    }),
 
-  }
+
+  },
+  mounted() {
+   let query = this.$route.query;
+   const data = {
+     'client_id': '8',
+      'client_secret': 'gpTY2RnH8Or166uyDh6aAdRv2WSTpu1VJXYZErK5',
+      'redirect_uri': 'http://localhost:8080/callback',
+      'code': query.code,
+      'grant_type': 'authorization_code'
+   }
+   this.$axios.post('http://localhost:8000/oauth/token', data)
+   .then(res => console.log(res))
+   .catch(err => console.log(err));
+  },
 }
 </script>
 

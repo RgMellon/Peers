@@ -1,7 +1,6 @@
 <template>
   <div class="view-parallax">
     <parallax :fixed="true">
-     {{ this.img}}
       <div v-if="this.img" class="row justify-center">
         <img  v-if="!this.prod" :src="`${img}`" style="height:100%; margin-top:3rem; width: 100%;">
         <img  v-if="this.prod" :src="`${img}`" class="img-produto shadow-4">

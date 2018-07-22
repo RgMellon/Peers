@@ -24,6 +24,7 @@
 
 <script>
 import { mapActions } from 'vuex';
+import Storage from '../../services/localStorage';
 export default {
   name: 'ComponentCadastro',
   data () {
@@ -47,19 +48,15 @@ export default {
         email: this.email,
         password_confirmation: this.senhaConfirmada
       }
-      this.$axios.post('https://mypeers-api.herokuapp.com/api/register', data, {
+      this.$axios.post(`${this.$pathUser()}register`, data, {
          headers: {
           'Accept': 'application/json',
         }
       })
         .then(res => res.data)
-        .then(dados => {
-          localStorage.setItem('usuarios',
-            JSON.stringify({ "token" : dados.access_token,
-                            "refresh_token":dados.refresh_token})
-          )
-        })
-        .then(redireciona => this.$router.push('/autenticacao'))
+        .then(dados => Storage.setStorageUser(
+                      dados.access_token, dados.refresh_token))
+        .then(redireciona => this.$router.push('/usuario'))
         .catch(err => console.error(err.message));
     }
   }

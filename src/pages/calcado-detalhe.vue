@@ -4,7 +4,9 @@
         <vue-galeria :img="[`${this.$pathImg()}${this.getProduto.img}`]" alt=""
        />
       </div>
-
+      <div class="fav">
+        <favorito :calcado="this.getProduto"/>
+      </div>
       <section class="content" style="width:97%;">
         <section class="titulo">
           <h1> {{ this.getProduto.nome }}</h1>
@@ -26,6 +28,7 @@
 <script>
 import Modal from '../components/Modal';
 import { mapGetters } from 'vuex';
+import Favortio from '../components/Favorito';
 import vueGaleria from '../components/vueGaleria';
 
 export default {
@@ -33,10 +36,11 @@ export default {
   components: {
     modal: Modal,
     'vue-galeria': vueGaleria,
+    'favorito' : Favortio
   },
   computed: {
     ...mapGetters({
-      getProduto: 'getProduto'
+        getProduto: 'getProduto'
     }),
 
   }

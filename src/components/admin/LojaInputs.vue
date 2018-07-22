@@ -12,8 +12,13 @@
       icon="fas fa-map" style="margin-top:2rem;"
       icon-color="amber"
       label="Endereço" >
-      <q-input v-model="endereco" type="email"/>
+      <q-input v-model="endereco" type="text"/>
     </q-field>
+    
+     <q-field label="Bairro" >
+         <q-input v-model="bairro" type="text"/>
+     </q-field>
+     
     <q-field
       icon="fas fa-phone" style="margin-top:2rem;"
       icon-color="red"
