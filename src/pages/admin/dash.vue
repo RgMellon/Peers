@@ -16,10 +16,9 @@
           />
         </div>
         <div v-if="!this.loja.data">
-          <loja-create :img="this.file" 
-                :userId="this.user_id">
+          <loja-create :img="this.file"
+            :userId="this.user_id">
           </loja-create>
-          
         </div>
       </section>
     </parallax>
@@ -27,7 +26,10 @@
 </template>
 
 <script>
+
+import { getLoja } from '../../services/getLoja';
 import { retornaTokenLocal } from '../../services/retornaTokenLocal';
+import sessionStorage from '../../services/sessionStorage';
 import Parallax from '../../components/Parallax';
 import LojaCreate from '../../components/admin/LojaCreate';
 import Upload from '../../components/Upload';
@@ -53,13 +55,20 @@ export default {
   },
 
   mounted() {
+    if(sessionStorage.get('user')) {
+      let user = sessionStorage.get('user');
+      this.getLojaByUser(user.id)
+      return;
+    }
+    
     this.$axios.get(`${this.$pathUser()}user`, {
       headers : {
         Authorization : `Bearer ${retornaTokenLocal()}`
       }
-    }).then(user => this.user_id = user.data.id)
-      .then(idUser => this.getLojaByUser(idUser))
-  },
+    })
+      .then(session => sessionStorage.set('user', session.data))
+      .then(user => this.getLojaByUser(sessionStorage.get('user').id))
+    },
 
   methods: {
     uploadFile(img){
@@ -67,13 +76,24 @@ export default {
     },
 
     getLojaByUser(id) {
-      this.$axios.get(`${this.$pathUser()}v1/loja/user/${id}`)
+      if(sessionStorage.get('loja')){
+        this.getFileCache();
+        return;
+      }
+      // se não tiver em cache, pega aqui
+      getLoja(id)
       .then(res => this.loja = res)
-      .then(loja => {
-        if(loja.data) {
-          this.file = `${this.$pathImgLoja()}${loja.data.img}`
-        }
-      })
+      .then(loja => loja.data ? this.attFile(loja.data.img) : null)
+      .then(session => sessionStorage.set('loja', this.loja.data));
+    },
+
+    getFileCache() {
+      let loja = this.loja.data = sessionStorage.get('loja');
+      this.attFile(loja.img)
+    },
+
+    attFile(img){
+      this.file = `${this.$pathImgLoja()}${img}`
     }
   },
 }

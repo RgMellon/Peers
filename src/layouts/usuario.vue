@@ -26,6 +26,12 @@
                 sublabel="Administre sua loja" />
             </q-item>
 
+            <q-item to="/admin" style="color:black;">
+              <q-item-side color="primary" icon="fas fa-store" />
+              <q-item-main label="Minha Loja"
+                sublabel="Administre sua loja" />
+            </q-item>
+            
             <q-item to="/chat">
               <q-item-side icon="chat" color="red-3"/>
               <q-item-main style="color:black;" label="Entre em contato"
