@@ -57,17 +57,22 @@ export default {
   mounted() {
     if(sessionStorage.get('user')) {
       let user = sessionStorage.get('user');
+      this.user_id = user.id;
       this.getLojaByUser(user.id)
       return;
     }
-    
+
     this.$axios.get(`${this.$pathUser()}user`, {
       headers : {
         Authorization : `Bearer ${retornaTokenLocal()}`
       }
     })
       .then(session => sessionStorage.set('user', session.data))
-      .then(user => this.getLojaByUser(sessionStorage.get('user').id))
+      .then(user => {
+        let idUser = sessionStorage.get('user').id
+        this.user_id = idUser;
+        this.getLojaByUser(idUser)
+      })
     },
 
   methods: {

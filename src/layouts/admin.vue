@@ -46,7 +46,7 @@
 
 <script>
 export default {
-  // name: 'LayoutName',
+  name: 'AdminLayout',
   data () {
     return {
       leftSide: true

@@ -69,6 +69,7 @@ export default {
     openURL,
     sair() {
       localStorage.removeItem('usuarios');
+      sessionStorage.clear();
       this.$router.push('/');
     }
   }
