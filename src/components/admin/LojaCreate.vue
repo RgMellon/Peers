@@ -44,28 +44,32 @@
 </template>
 
 <script>
+import Loja from '../../services/Loja';
+
 export default {
   props: ['img', 'userId'],
+
   name: 'CreateLoja',
+
   data () {
     return {
       loja: {
-        nome: '',
-        sobre:  '',
-        endereco: '',
-        numero: '',
-        bairro: '',
-        tell: '',
-        wp: '',
+          nome: '',
+          sobre:  '',
+          endereco: '',
+          numero: '',
+          bairro: '',
+          tell: '',
+          wp: '',
       }
     }
   },
 
   methods : {
     salvaDados() {
-       this.loja.img = this.img
-       this.loja.user_id = this.userId
-       this.$axios.post(`${this.$path()}loja`, this.loja)
+       this.loja.img = this.img;
+       this.loja.user_id = this.userId;
+       Loja.store(loja)
         .then(res => this.$q.notify({
           icon: 'fas fas fa-thumbs-up',
           message: 'Loja Criada com sucesso '

@@ -13,6 +13,7 @@
             :wpLoja = "this.loja.data.wp"
             :bairroLoja = "this.loja.data.bairro"
             :numeroLoja = "this.loja.data.numero"
+            :img="this.file"
           />
         </div>
         <div v-if="!this.loja.data">

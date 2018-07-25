@@ -37,19 +37,23 @@
       <q-input v-model="loja.wp" type="tel"/>
     </q-field>
 
-    <q-btn :loading="load" color="primary" class="full-width" style="margin-top:2rem"
+    <q-btn  color="primary" class="full-width" style="margin-top:2rem"
       @click="update()" label="Atualizar" />
   </section>
 </template>
 
 <script>
+
+import Loja from '../../services/Loja';
+
 export default {
   props: ['nomeLoja', 'sobreLoja', 'enderecoLoja', 'telLoja',
-  'wpLoja', 'bairroLoja', 'numeroLoja'],
+          'wpLoja', 'bairroLoja', 'numeroLoja', 'img'],
+
   name: 'LojaUpdate',
+
   data () {
     return {
-      load: false,
       loja: {
         nome: this.nomeLoja,
         sobre: this.sobreLoja,
@@ -64,8 +68,12 @@ export default {
 
   methods: {
     update() {
-      this.$axios.put(`${this.$path()}loja`, this.loja)
-        .then(res => console.log(res));
+      this.loja.img = this.img;
+      Loja.update(this.loja)
+          .then(res => this.$q.notify({
+            icon: 'fas fas fa-thumbs-up',
+            message: 'Atualizado'
+          }))
     }
   }
 }

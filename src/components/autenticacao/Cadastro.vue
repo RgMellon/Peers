@@ -49,7 +49,7 @@ export default {
         password_confirmation: this.senhaConfirmada
       }
       this.$axios.post(`${this.$pathUser()}register`, data, {
-         headers: {
+        headers: {
           'Accept': 'application/json',
         }
       })
