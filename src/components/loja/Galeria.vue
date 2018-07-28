@@ -1,39 +1,49 @@
 <template>
-  <section class="container margin-right:1rem">
-    <div class="box" v-for="i of 100" @click="redirecionarPara">
-      <img src="statics/allstar.jpg" class="max-100" alt="">
+
+    <div  class="box" @click="add">
+      <img :src="`http://localhost:8000/images/prod/${this.calcado.img}`" class="max-100">
     </div>
-  </section>
+
 </template>
 
 <script>
+import Produto from '../../services/Produto';
+import { mapActions } from 'vuex';
+
 export default {
+  props: ['calcado'],
   name: 'Galeria',
+
   data () {
-    return {}
-  },
-  methods: {
-    redirecionarPara(){
-      this.$redirecionaComLoad('calcado/detalhes')
+    return {
+      dados : {},
     }
-  }
+  },
+
+  methods: {
+    add() {
+      this.detalheProduto(this.calcado)
+      this.$router.push('/calcado/detalhes')
+    },
+    ...mapActions({
+      detalheProduto: 'detalheProduto',
+    }),
+  },
+
 }
 </script>
 
 <style scoped>
-  .container{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin-left: 7px;
-  }
 .box {
-  width: 31%;
-  margin: 1%;
+  width: 40%;
+  margin: 3%;
   border:1px solid #dedbdbc4;
   border-radius: 10px;
 }
 .max-100{
   max-width:100%;
+  border-radius: 5px;
+  padding: 0.3rem;
+  margin-top: 4px;
 }
 </style>

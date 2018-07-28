@@ -16,9 +16,11 @@
     "connect-history-api-fallback": "^1.5.0",
     "express": "^4.16.3",
     "serve-static": "^1.13.2",
+    "vee-validate": "^2.1.0-beta.6",
     "vue-cropperjs": "^2.2.1",
     "vue-gallery": "^1.4.0",
     "vue-parallaxy": "^1.1.1",
+    "vuelidate": "^0.7.4",
     "vuex-persistedstate": "^2.5.4"
   },
   "devDependencies": {

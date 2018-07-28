@@ -5,12 +5,12 @@
        color="white"
       >
       <q-btn
+          @click="$router.go(-1)"
           flat
           dense
           round
           aria-label="logo"
           style="font-size: 1.2rem;color:#E8D23E"
-          to="/"
       >
         <q-icon name="fas fa-arrow-circle-left" />
       </q-btn>
@@ -40,6 +40,7 @@ export default {
   },
   methods: {
     openURL
+
   }
 }
 </script>

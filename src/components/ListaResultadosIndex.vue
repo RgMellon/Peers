@@ -3,7 +3,7 @@
   <q-list inset-separator class="q-mt-md myshaddow" >
     <q-item multiline>
       <q-item-side class="img-avatar"
-        :avatar="`http://localhost:8000/images/prod/${this.img}`"/>
+        :avatar="`${this.$pathImg()}${this.img}`"/>
         <q-item-main
           :label="this.nome"
           label-lines="1"

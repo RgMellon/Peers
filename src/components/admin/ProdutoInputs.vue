@@ -1,38 +1,57 @@
 <template>
   <section class="inputs-produtos">
 
-    <q-field style="margin-top:2rem;" label="Nome Produto" >
-      <q-input v-model="nome" type="text"/>
+    <q-field style="margin-top:2rem;" name="nome" label="Nome Produto" >
+      <q-input
+        v-model="form.nome"
+        type="text"
+        @blur="$v.form.nome.$touch"
+        :error="$v.form.nome.$error"
+      />
     </q-field>
 
     <q-field
       icon="fas fa-dollar-sign" style="margin-top:2rem;"
       icon-color="green"
       label="Preço" >
-      <q-input v-model="preco" type="tel"/>
+      <q-input
+        v-model="form.preco"
+        @blur="$v.form.preco.$touch"
+        :error="$v.form.preco.$error"
+        type="tel"/>
     </q-field>
 
     <div style="margin-top:3rem;">
       <div style="color:red;">
-        <q-input v-model="descricao" type="textarea" placeholder="Descriçao do produto"/>
+        <q-input v-model="form.descricao" type="textarea" placeholder="Descriçao do produto"/>
       </div>
     </div>
 
     <q-field>
       <q-chips-input style="margin-top:2rem;"
-        v-model="tags"
+        v-model="form.tags"
+        @blur="$v.form.tags.$touch"
+        :error="$v.form.tags.$error"
         placeholder="Adicione suas Tags :)"
       />
     </q-field>
 
     <q-btn :loading="load" color="primary" class="full-width" style="margin-top:2rem"
-      @click="salvaProdutos()" label="Salvar Produto" />
+      @click="store()" label="Salvar Produto" />
 
   </section>
 </template>
 
 <script>
 import Upload from '../../components/Upload';
+import Produto from '../../services/Produto';
+import { required } from 'vuelidate/lib/validators';
+
+import Vuelidate from 'vuelidate'
+import Vue from 'vue';
+
+Vue.use(Vuelidate);
+
 export default {
   props: ['imgCropp'],
   name: 'InputProduto',
@@ -41,20 +60,49 @@ export default {
   },
   data () {
     return {
-      tags: [],
-      preco: '',
-      nome: '',
-      descricao: '',
+      form : {
+        tags: [],
+        preco: '',
+        nome: '',
+        descricao: '',
+      },
       load: false,
     }
   },
   methods: {
-    salvaProdutos () {
+    store () {
+      this.validate();
+      this.emptyImg();
       this.load = true;
-      this.$salvaProduto(this.imgCropp, this.nome, this.preco, this.descricao, this.tags)
-        .then(res => this.load = false)
+      this.form.img = this.imgCropp;
+      Produto.store(this.form)
+      .then(res => this.load = false)
     },
-  }
+
+    validate() {
+      this.$v.form.$touch()
+
+      if (this.$v.form.$error) {
+        this.$q.notify('Alguns campos estão incorretos :( ')
+        return
+      }
+    },
+
+    emptyImg(){
+      if(this.imgCropp == ''){
+        this.$q.notify(' Selecione e corte a imagem ')
+        return
+      }
+    }
+
+  },
+  validations: {
+    form: {
+      nome: { required },
+      preco : { required },
+      tags: { required }
+    }
+  },
 
 }
 </script>

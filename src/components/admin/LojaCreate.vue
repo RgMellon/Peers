@@ -38,7 +38,7 @@
     </q-field>
 
     <q-btn  color="primary" class="full-width" style="margin-top:2rem"
-      @click="salvaDados()" label="Salvar configurações" />
+      @click="store()" label="Salvar configurações" />
 
   </section>
 </template>
@@ -66,10 +66,10 @@ export default {
   },
 
   methods : {
-    salvaDados() {
+    store() {
        this.loja.img = this.img;
        this.loja.user_id = this.userId;
-       Loja.store(loja)
+       Loja.store(this.loja)
         .then(res => this.$q.notify({
           icon: 'fas fas fa-thumbs-up',
           message: 'Loja Criada com sucesso '

@@ -3,6 +3,7 @@
     <p class="caption" style="text-align: center; ">
       Veja informações do vendedor
     </p>
+
     <q-btn
       @click="actionSheet = true"
       label="Me Mostrar"
@@ -16,13 +17,13 @@
         @cancel="onCancel"
         :actions="[
           {
-            label: 'Loja Raffs',
+            label: this.loja.nome,
             icon: 'fas fa-building',
             color: 'red',
             handler: deleteAction
           },
           {
-            label: 'Rua Tal numero tal',
+            label: this.loja.endereco,
             icon: 'fas fa-map',
             color: 'primary'
           },
@@ -38,11 +39,22 @@
 </template>
 
 <script>
+
+import Loja from '../services/Loja';
+import sessionStorage from '../services/sessionStorage';
+
 export default {
+  props: ['idProduto'],
+
   data () {
     return {
       actionSheet: false,
+      loja : {}
     }
+  },
+  mounted() {
+    this.getLojaByProd()
+
   },
   methods: {
     deleteAction () {
@@ -57,7 +69,13 @@ export default {
       //   icon: 'done',
       //   message: 'Action Sheet was dismissed'
       // })
+    },
+    getLojaByProd() {
+      Loja.getLojaByProd(this.idProduto)
+        .then(res => this.loja = res)
+        .then(storage => sessionStorage.set('loja_detalhe', this.loja))
     }
-  }
+  },
+
 }
 </script>

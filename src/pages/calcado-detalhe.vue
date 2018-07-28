@@ -1,6 +1,6 @@
 <template>
   <q-page class="text-center page">
-      <div class="area-img shadow-4 row justify-center" style="width:100%">
+       <div class="area-img shadow-4 row justify-center" style="width:100%">
         <vue-galeria :img="[`${this.$pathImg()}${this.getProduto.img}`]" alt=""
        />
       </div>
@@ -19,7 +19,7 @@
         </div>
 
         <section class="info-loja">
-          <modal/>
+          <modal :idProduto="this.getProduto.id" />
         </section>
       </section>
   </q-page>
@@ -38,6 +38,7 @@ export default {
     'vue-galeria': vueGaleria,
     'favorito' : Favortio
   },
+
   computed: {
     ...mapGetters({
         getProduto: 'getProduto'

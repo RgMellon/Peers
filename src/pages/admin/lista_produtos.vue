@@ -8,7 +8,10 @@
 </template>
 
 <script>
+
 import ListaResultadosIndex from '../../components/ListaResultadosIndex';
+import Produto from '../../services/Produto';
+
 export default {
   name: 'PageListaProdutos',
   components: {
@@ -20,8 +23,8 @@ export default {
     }
   },
   mounted() {
-    this.$axios.get('http://localhost:8000/api/v1/produtos')
-      .then(res => this.dados = res.data);
+      Produto.getProdutosByLoja()
+        .then(res => this.dados = res.data);
   },
 }
 </script>

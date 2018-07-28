@@ -6,11 +6,11 @@ module.exports = function (ctx) {
       'redirecionaComLoad',
       'createImg',
       'storeLoja',
-      'salvaProduto',
       'uploadImg',
       'path',
       'cropper',
-      'verificaSeEstaLogado'
+      'verificaSeEstaLogado',
+      'vuelidate'
     ],
     css: [
       'app.styl'
@@ -80,10 +80,13 @@ module.exports = function (ctx) {
         'QChipsInput',
         'QPopover',
         'QSpinner',
-        'QFabAction'
+        'QFabAction',
+        'QChip'
+
       ],
       directives: [
-        'Ripple'
+        'Ripple',
+        'GoBack'
       ],
       // Quasar plugins
       plugins: [
