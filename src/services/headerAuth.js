@@ -7,5 +7,4 @@ export const http = axios.create({
     Authorization : `Bearer ${retornaTokenLocal()}`
   },
 
-  timeout: 10000,
 });
