@@ -2,11 +2,17 @@
   <section class="login">
 
     <div class="email" style="margin-top:3rem;">
-      <q-input v-model="email" type="email" float-label="Email" />
+      <q-input v-model="form.email"
+       @blur="$v.form.email.$touch"
+        :error="$v.form.email.$error"
+      type="email" float-label="Email" />
     </div>
 
     <div class="password" style="margin-top:2rem;">
-      <q-input v-model="password" type="password" float-label="Senha" />
+      <q-input v-model="form.password" type="password"
+      @blur="$v.form.password.$touch"
+      :error="$v.form.email.$error"
+      float-label="Senha" />
     </div>
 
     <q-btn :loading="load" color="primary" class="full-width"
@@ -17,30 +23,49 @@
 </template>
 
 <script>
-import Storage from '../../services/localStorage';
+import User from '../../services/User';
+import { required, email } from 'vuelidate/lib/validators';
+
+import Vuelidate from 'vuelidate'
+import Vue from 'vue';
+
+Vue.use(Vuelidate);
 
 export default {
-   name: 'ComponentLogin',
+  name: 'ComponentLogin',
   data () {
     return {
       load: false,
-      email: '',
-      password: ''
+      form: {
+        email: '',
+        password: ''
+      },
+
     }
   },
   methods: {
     login() {
-      const data = {
-        email: this.email,
-        password: this.password,
+      this.$v.form.$touch()
+
+      if (this.$v.form.$error) {
+        this.$q.notify('Preencha os campos corretamente ')
+        return
       }
-      this.$axios.post(`${this.$pathUser()}login`, data)
-      .then(dados => dados.data)
-      .then(dados => Storage.setStorageUser(
-            dados.access_token, dados.refresh_token))
-      .then(redireciona => this.$router.push('/usuario'))
+
+      User.login(this.form)
+        .then(res => res)
+        .then(redireciona => this.$router.push('/usuario'))
+        .catch(err => this.$q.notify('Usuário ou senha inválidos'));
+    },
+
+
+  },
+  validations: {
+    form: {
+      email: { required, email  },
+      password : { required }
     }
-  }
+  },
 }
 </script>
 

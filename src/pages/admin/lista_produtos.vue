@@ -1,9 +1,14 @@
 <template>
   <q-page padding>
-    <lista v-for="i of this.dados" :key="i.id" class="lista-items"
+    <div v-for="i of this.dados" :key="i.id" class="itens row justify-end">
+      <lista class="lista-items"
           :nome="i.nome" :descricao="i.descricao"
           :img="i.img" :preco="i.preco">
-    </lista>
+      </lista>
+      <q-btn round class="btn-delete" @click="remove(i)"
+        icon="fas fa-trash-alt"
+        color="red" />
+    </div>
   </q-page>
 </template>
 
@@ -23,14 +28,47 @@ export default {
     }
   },
   mounted() {
-      Produto.getProdutosByLoja()
+      Produto.showProds()
         .then(res => this.dados = res.data);
   },
+  methods:{
+    remove(i) {
+      this.$q.dialog({
+        title: 'Aviso',
+        message: `Deseja excluir ${i.nome} ?`,
+        color: 'primary',
+        ok: true,
+        cancel: true,
+        preventClose: true,
+        position: 'bottom',
+      })
+      .then(() => {
+        Produto.delete(i);
+      })
+      .catch(() => {
+
+      })
+    }
+  }
 }
 </script>
 
 <style scoped>
-  .lista-items:first-child {
+  .itens:first-child {
     margin-top:2rem;
   }
+
+  .lista-items {
+    width: 100%;
+  }
+
+  .btn-delete {
+    top: -32px;
+    right: -5px;
+  }
+
+  .itens {
+    margin-top: -2rem;
+  }
+
 </style>

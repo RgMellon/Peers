@@ -10,6 +10,7 @@ module.exports = function (ctx) {
       'path',
       'cropper',
       'verificaSeEstaLogado',
+      'haveLojaRoute',
       'vuelidate'
     ],
     css: [
@@ -92,6 +93,7 @@ module.exports = function (ctx) {
       plugins: [
         'Notify',
         'Loading',
+        'Dialog'
       ],
       iconSet: 'fontawesome',
       // i18n: 'de' // Quasar language

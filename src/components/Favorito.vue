@@ -27,6 +27,7 @@
 import { mapGetters } from 'vuex';
 import { mapActions } from 'vuex';
 import { retornaTokenLocal } from '../services/retornaTokenLocal';
+import Favorito from '../services/Favorito';
 
 export default {
   props: ['calcado'],
@@ -37,15 +38,7 @@ export default {
   },
   methods: {
     favoritar() {
-      if(retornaTokenLocal() !== false) {
-        this.favorito = !this.favorito;
-        if(this.favorito == true){
-          this.notify();
-          this.add_calcado_favorito(this.calcado)
-        }
-      }else {
-        this.$router.push('/usuario')
-      }
+      Favorito.set(this.calcado);
     },
     notify () {
       this.$q.notify({

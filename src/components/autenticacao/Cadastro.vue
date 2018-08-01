@@ -1,65 +1,75 @@
 <template>
   <section>
-    <q-input v-model="name"
-      float-label="Nome" placeholder="Digite o nome de usuario" />
+    <q-input v-model="form.name"
+      float-label="Nome"
+      @blur="$v.form.name.$touch"
+      :error="$v.form.name.$error"
+      placeholder="Digite o nome de usuario" />
 
     <div class="email">
-      <q-input v-model="email" type="email" float-label="Email" />
+      <q-input v-model="form.email" type="email"
+      @blur="$v.form.email.$touch"
+        :error="$v.form.email.$error"
+      float-label="Email" />
     </div>
 
     <div class="password">
-      <q-input v-model="password" type="password" float-label="Senha" />
+      <q-input v-model="form.password"
+      @blur="$v.form.password.$touch"
+        :error="$v.form.password.$error"
+      type="password" float-label="Senha" />
     </div>
 
-    <div class="password">
-      <q-input v-model="senhaConfirmada" type="password" float-label="Confirmar Senha" />
-    </div>
-
-     <q-btn :loading="load" color="primary" class="full-width" style="margin-top:2rem"
+    <q-btn :loading="load" color="primary" class="full-width" style="margin-top:2rem"
       @click="cadastra()" label="Cadastrar" />
+
   </section>
 
 
 </template>
 
 <script>
-import { mapActions } from 'vuex';
-import Storage from '../../services/localStorage';
+import User from '../../services/User';
+import Vuelidate from 'vuelidate';
+import { required, email } from 'vuelidate/lib/validators';
+import Vue from 'vue';
+
+Vue.use(Vuelidate);
+
 export default {
   name: 'ComponentCadastro',
   data () {
     return {
-      name: '',
-      password: '',
-      senhaConfirmada: '',
-      email: '',
+      form: {
+        name: '',
+        password: '',
+        email: '',
+      },
       load: false,
     }
   },
   methods: {
-    ...mapActions({
-      setUsuario: 'setUsuario',
-    }),
     cadastra() {
-      this.load = true;
-      const data = {
-        name: this.name,
-        password: this.password,
-        email: this.email,
-        password_confirmation: this.senhaConfirmada
+      this.$v.form.$touch()
+
+      if (this.$v.form.$error) {
+        this.$q.notify('Preencha os campos corretamente ')
+        return
       }
-      this.$axios.post(`${this.$pathUser()}register`, data, {
-        headers: {
-          'Accept': 'application/json',
-        }
-      })
-        .then(res => res.data)
-        .then(dados => Storage.setStorageUser(
-                      dados.access_token, dados.refresh_token))
+
+      this.load = true;
+      User.register(this.form)
         .then(redireciona => this.$router.push('/usuario'))
-        .catch(err => console.error(err.message));
     }
-  }
+  },
+
+  validations: {
+    form: {
+      email: { required, email  },
+      password : { required },
+      name: { required }
+    }
+  },
 }
 </script>
 

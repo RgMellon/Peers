@@ -1,7 +1,7 @@
 <template>
 
     <div  class="box" @click="add">
-      <img :src="`http://localhost:8000/images/prod/${this.calcado.img}`" class="max-100">
+      <img :src="`${this.$pathImg()}${this.calcado.img}`" class="max-100">
     </div>
 
 </template>

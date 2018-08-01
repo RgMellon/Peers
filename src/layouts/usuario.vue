@@ -31,7 +31,7 @@
               <q-item-main label="Minha Loja"
                 sublabel="Administre sua loja" />
             </q-item>
-            
+
             <q-item to="/chat">
               <q-item-side icon="chat" color="red-3"/>
               <q-item-main style="color:black;" label="Entre em contato"
@@ -56,6 +56,9 @@
 <script>
 import Storage from '../services/localStorage';
 import { openURL } from 'quasar';
+import sessionStorage from '../services/sessionStorage';
+
+
 
 export default {
   name: 'LayoutDefault',
@@ -65,10 +68,11 @@ export default {
       showRight: true
     }
   },
+
   methods: {
     openURL,
     sair() {
-      localStorage.removeItem('usuarios');
+      Storage.removeStorage('usuarios');
       sessionStorage.clear();
       this.$router.push('/');
     }

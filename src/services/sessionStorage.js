@@ -9,6 +9,10 @@ export default {
   },
 
   remove() {
-    
+
+  },
+
+  clear() {
+    sessionStorage.clear();
   }
 }

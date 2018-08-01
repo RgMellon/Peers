@@ -8,11 +8,10 @@
       <q-tab @click="mostraLoja()" slot="title" icon="fas fa-store-alt"
       style="font-size:11px;" />
     </q-tabs>
-
     <div class="sapatos-favoritos" v-if="sapato">
-      <lista v-for="i of this.fav_calc" :key="i.id" class="lista-items"
-          :nome="i.detalhe.nome" :descricao="i.detalhe.descricao"
-          :img="i.detalhe.img" :preco="i.detalhe.preco">
+      <lista v-for="i of this.fav" :key="i.id" class="lista-items"
+          :nome="i.nome" :descricao="i.descricao"
+          :img="i.img" :preco="i.preco">
       </lista>
     </div>
 
@@ -23,8 +22,11 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+
 import ListaResultadosIndex from '../../components/ListaResultadosIndex';
+import Favorito from '../../services/Favorito';
+import User  from '../../services/User';
+import sessionStorage from '../../services/sessionStorage';
 
 export default {
   name: 'PagePerfilUsuario',
@@ -33,17 +35,11 @@ export default {
     'lista' : ListaResultadosIndex,
   },
 
-  computed: {
-    ...mapGetters({
-      usuario: 'getUsuario',
-      fav_calc: 'getCalcadoFavorito'
-    }),
-
-  },
   data() {
     return {
       sapato: true,
-      loja: false
+      loja: false,
+      fav: {},
     }
   },
 
@@ -52,12 +48,30 @@ export default {
       this.sapato = true;
       this.loja = false;
     },
+
     mostraLoja() {
       this.sapato = false;
       this.loja = true;
-    }
+    },
 
-  }
+    verificaUsuario() {
+      if(sessionStorage.get('user')){
+        console.log('tem');
+      }else{
+       console.log('não tem');
+      }
+    },
+
+    favoritos() {
+      Favorito.get()
+      .then(fav => this.fav = fav);
+      },
+    },
+
+  created() {
+    // this.verificaUsuario();
+  },
+
 }
 </script>
 

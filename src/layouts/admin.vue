@@ -13,7 +13,7 @@
       </q-toolbar-title>
 
       <q-btn flat round dense :to="{ name: 'add_prod'}" color="purple" icon="fas fa-plus-circle" />
-      <q-btn flat round dense color="green" icon="alarm" />
+
     </q-toolbar>
     <q-layout-drawer
       side="left"
@@ -27,7 +27,7 @@
           </q-btn>
           <span style="margin-left:2rem;"> MyPeers </span>
       </q-list-header>
-      <q-item to="/adicionar/produto" style="margin-top:2rem">
+      <q-item :to="{ name: 'add_prod'}" style="margin-top:2rem">
         <q-item-side icon="fas fa-plus-circle" />
         <q-item-main label="Adicionar Produtos" sublabel="Adicione um novo produto" />
       </q-item>

@@ -29,17 +29,42 @@ export default [
         component: () => import('pages/autenticacao/usuario'), name: 'ususario'},
     ]
   },
+
   {
     path: '/admin',
     component: () => import('layouts/admin'),
     children: [
       { path: '', component: () => import('pages/admin/dash'), name: 'admin' },
-      { path: '/adicionar/produto',
-              component: () => import('pages/admin/add_produtos'), name: 'add_prod'},
-      { path: '/lista/produtos',
-              component: () => import('pages/admin/lista_produtos'), name: 'lista_prod'}
     ]
   },
+
+  {
+    path: '/aviso',
+    component: () => import('layouts/detalhes'),
+    children: [
+      { path: '', component: () => import('pages/message_loja'), name: 'aviso' },
+    ]
+  },
+
+  {
+    path: '/loja/admin',
+    component: () => import('layouts/admin'),
+    children: [
+      {
+        path: 'adiciona',
+        meta: { haveLoja: true },
+        component: () => import('pages/admin/add_produtos'),
+        name: 'add_prod'
+      },
+      {
+        path: '/lista',
+        meta: { haveLoja: true },
+        component: () => import('pages/admin/lista_produtos'),
+        name: 'lista_prod'
+      },
+    ]
+  },
+
   {
     path: '/autenticacao',
     component: () => import('layouts/autenticacao'),
@@ -48,8 +73,6 @@ export default [
       { path: '/autenticacao/login', component: () => import('pages/autenticacao/login'), name: 'login' },
     ]
   },
-  // só posso entrar aqui, se estiver logado.
-  // essa é a rota do usuario
 
   { // Always leave this as last one
     path: '*',
