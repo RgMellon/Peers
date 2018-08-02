@@ -13,7 +13,7 @@ export default {
   },
 
   store(loja) {
-    return axios.post(`${ pathUrl() }loja`, loja)
+    return http.post(`${ pathUrl() }loja`, loja)
   },
 
   getLojaByProd(id) {

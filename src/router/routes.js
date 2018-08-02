@@ -25,8 +25,27 @@ export default [
     path: '/usuario',
     component: () => import('layouts/usuario'),
     children: [
-      { path: '', meta: {requiresAuth: true},
-        component: () => import('pages/autenticacao/usuario'), name: 'ususario'},
+
+      { path: '/usuario/cadastro', component: () => import('pages/usuario/cadastro'), name: 'cadastro' },
+      { path: '/usuario/login', component: () => import('pages/usuario/login'), name: 'login' },
+      {
+        path: '',
+        meta: { requiresAuth: true },
+        component: () => import('pages/usuario/index'),
+        name: 'ususario'
+      },
+      {
+        path: '/usuario/favoritos/calcados',
+        meta: { requiresAuth: true },
+        component: () => import('pages/usuario/favoritos/calcados'),
+        name: 'calcados.favoritos'
+      },
+      {
+        path: '/usuario/favoritos/lojas',
+        meta: { requiresAuth: true },
+        component: () => import('pages/usuario/favoritos/lojas'),
+        name: 'lojas.favoritos'
+      },
     ]
   },
 
@@ -65,14 +84,6 @@ export default [
     ]
   },
 
-  {
-    path: '/autenticacao',
-    component: () => import('layouts/autenticacao'),
-    children: [
-      { path: '/autenticacao/cadastro', component: () => import('pages/autenticacao/cadastro'), name: 'cadastro' },
-      { path: '/autenticacao/login', component: () => import('pages/autenticacao/login'), name: 'login' },
-    ]
-  },
 
   { // Always leave this as last one
     path: '*',

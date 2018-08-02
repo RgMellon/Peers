@@ -82,7 +82,9 @@ module.exports = function (ctx) {
         'QPopover',
         'QSpinner',
         'QFabAction',
-        'QChip'
+        'QChip',
+        'QBreadcrumbs',
+        'QBreadcrumbsEl'
 
       ],
       directives: [

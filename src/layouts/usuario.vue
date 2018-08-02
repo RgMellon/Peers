@@ -12,38 +12,7 @@
           <span style="font-family: 'Satisfy', cursive;"> MyPeers </span>
           <div slot="subtitle"> Encontre seu par perfeito </div>
       </q-toolbar-title>
-      <q-btn
-        flat round dense
-        @click="showRight = !showRight"
-        icon="menu"
-        color='black'
-      />
-      <q-layout-drawer side="right"  v-model="showRight">
-          <q-list no-border link inset-separator>
-           <q-item to="/admin" style="color:black;">
-              <q-item-side color="primary" icon="fas fa-store" />
-              <q-item-main label="Minha Loja"
-                sublabel="Administre sua loja" />
-            </q-item>
 
-            <q-item to="/admin" style="color:black;">
-              <q-item-side color="primary" icon="fas fa-store" />
-              <q-item-main label="Minha Loja"
-                sublabel="Administre sua loja" />
-            </q-item>
-
-            <q-item to="/chat">
-              <q-item-side icon="chat" color="red-3"/>
-              <q-item-main style="color:black;" label="Entre em contato"
-                  sublabel="Sugestões de melhoria / Bug " />
-            </q-item>
-
-            <q-btn  color="primary"
-            class="full-width fixed-bottom absolute-bottom"
-            @click="sair()" label="Sair" />
-
-          </q-list>
-      </q-layout-drawer>
     </q-toolbar>
     </q-layout-header>
 

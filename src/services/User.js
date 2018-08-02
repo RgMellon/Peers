@@ -24,12 +24,20 @@ export default {
   },
 
   getUser() {
-    return http.get(`${ pathUser() }user`)
-      .then(user => this.saveOnCache(user.data));
+    if(sessionStorage.get('user')) {
+      return new Promise((resolve, reject) => {
+        resolve(sessionStorage.get('user'));
+        reject(err => { throw new Error('Problemas ao autenticar')})
+      })
+    }else {
+      let token = Storage.get('usuarios').token;
+      return http.get(`${ pathUser() }user`, {
+        headers: {
+          Authorization : `Bearer ${ token }`
+        }
+      }).then(res => sessionStorage.set('user', res.data))
+        .then( user => sessionStorage.get('user'))
+    }
   },
 
-  saveOnCache(user) {
-    console.log('oiiiiiii');
-    sessionStorage.set('user', user);
-  }
 }
