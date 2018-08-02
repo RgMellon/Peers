@@ -2,7 +2,7 @@
   <q-page>
   <header-fav cor="background: #673AB7;">
       <div slot="bread">
-        <q-breadcrumbs  separator="/" active-color="amber" color="light">
+        <q-breadcrumbs  separator=">" active-color="amber" color="light">
               <q-breadcrumbs-el label="Perfil" to="/usuario" />
               <q-breadcrumbs-el label="Lojas favoritas" />
         </q-breadcrumbs>

@@ -2,7 +2,6 @@
   <q-page>
     <parallax :img="`${ this.$pathImgLoja() }/${ loja.img }`">
       <section slot="conteudo" >
-
         <section class="info-loja padding column">
           <section class="titulo row justify-center">
             <h1> {{ loja.nome }} </h1>

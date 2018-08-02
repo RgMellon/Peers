@@ -26,6 +26,9 @@ export default {
           label: 'Minha Loja',
           icon: 'store',
           color:'blue',
+          handler: () => {
+            this.$router.push({ name : 'admin'})
+          }
         },
         {
           label: 'Calçados favoritos',

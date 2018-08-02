@@ -53,7 +53,10 @@ export default [
     path: '/admin',
     component: () => import('layouts/admin'),
     children: [
-      { path: '', component: () => import('pages/admin/dash'), name: 'admin' },
+      {
+        path: '', component: () => import('pages/admin/dash'),
+        name: 'admin'
+      },
     ]
   },
 
