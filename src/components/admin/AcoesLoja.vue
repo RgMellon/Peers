@@ -23,7 +23,7 @@ export default {
     return {
       types: [
         {
-          label: 'Criar Loja',
+          label: 'Editar Loja',
           icon: 'fas fa-cogs',
           color:'blue',
           handler: () => {
