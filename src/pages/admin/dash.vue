@@ -52,7 +52,7 @@
       </q-list>
       <div class="row justify-center" style="margin-top:1rem;">
        <q-btn outline rounded color="primary"
-          label="Crie sua loja" :to="{ name: 'add_prod'}" />
+          label="Crie sua loja" :to="{ name: 'criar_loja'}" />
       </div>
     </div>
   </q-page>

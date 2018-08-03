@@ -14,6 +14,7 @@ export default [
       { path: '', component: () => import('pages/calcado-detalhe') }
     ]
   },
+    //essa é a rota loja pro usuario final, sem ser o admin
   {
     path: '/loja',
     component: () => import('layouts/detalhes'),
@@ -21,6 +22,8 @@ export default [
       { path: '', component: () => import('pages/loja') }
     ]
   },
+//essa rota contem as ações do usuario, como cadastrar-se
+// login, ver o perfil, os calçados e lojas favoritas
   {
     path: '/usuario',
     component: () => import('layouts/usuario'),
@@ -50,17 +53,6 @@ export default [
   },
 
   {
-    path: '/admin',
-    component: () => import('layouts/admin'),
-    children: [
-      {
-        path: '', component: () => import('pages/admin/dash'),
-        name: 'admin'
-      },
-    ]
-  },
-
-  {
     path: '/aviso',
     component: () => import('layouts/detalhes'),
     children: [
@@ -72,6 +64,16 @@ export default [
     path: '/loja/admin',
     component: () => import('layouts/admin'),
     children: [
+      {
+        path: '', component: () => import('pages/admin/dash'),
+        name: 'admin'
+      },
+      {
+        path: 'criar',
+        meta: { requiresAuth: true },
+        component: () => import('pages/admin/criar_loja'),
+        name: 'criar_loja'
+      },
       {
         path: 'adiciona',
         meta: { haveLoja: true },
