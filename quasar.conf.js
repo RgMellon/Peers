@@ -84,8 +84,8 @@ module.exports = function (ctx) {
         'QFabAction',
         'QChip',
         'QBreadcrumbs',
-        'QBreadcrumbsEl'
-
+        'QBreadcrumbsEl',
+        'QCollapsible'
       ],
       directives: [
         'Ripple',

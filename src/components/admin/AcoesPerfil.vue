@@ -17,6 +17,8 @@
 </template>
 
 <script>
+import Loja from '../../services/Loja';
+
 export default {
   name: 'ComponentAcoesUsuario',
   data () {

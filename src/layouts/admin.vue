@@ -12,8 +12,6 @@
         <router-link to="/admin" style="color:black;text-decoration:none "> Minha Loja </router-link>
       </q-toolbar-title>
 
-      <q-btn flat round dense :to="{ name: 'add_prod'}" color="purple" icon="fas fa-plus-circle" />
-
     </q-toolbar>
     <q-layout-drawer
       side="left"
