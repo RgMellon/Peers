@@ -10,22 +10,29 @@
         </upload>
       </div>
     </div>
+    <section class="inputs-loja">
+      <loja-criar :img="this.file">
+
+      </loja-criar>
+    </section>
   </q-page>
 </template>
 
 <script>
 import Upload from '../../components/Upload';
+import LojaCreate from '../../components/admin/LojaCreate';
 
 export default {
   name: 'CriarLoja',
   components: {
     'upload': Upload,
+    'loja-criar' : LojaCreate
   },
   data () {
     return {
       file: '',
     }
-    },
+  },
   methods: {
     uploadFile(img){
       this.file = img;
@@ -49,8 +56,7 @@ img {
 
 }
 .wrapper-btn {
-  color: white;
-  background: #027be3;
+  background: gray;
   height: 50px;
   width: 50px;
   display: flex;

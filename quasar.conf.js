@@ -5,7 +5,6 @@ module.exports = function (ctx) {
       'axios',
       'redirecionaComLoad',
       'createImg',
-      'storeLoja',
       'uploadImg',
       'path',
       'cropper',
