@@ -10,7 +10,8 @@ module.exports = function (ctx) {
       'cropper',
       'verificaSeEstaLogado',
       'haveLojaRoute',
-      'vuelidate'
+      'vuelidate',
+      'VueTheMask'
     ],
     css: [
       'app.styl'

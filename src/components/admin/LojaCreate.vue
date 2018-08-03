@@ -39,16 +39,18 @@
       icon="fas fa-phone" style="margin-top:2rem;"
       icon-color="purple"
       label="Tel">
-      <q-input type="tel" v-model="form.tell"/>
+      <q-input type="tel" v-mask="'(##)####-####'"
+      v-model="form.tell"/>
     </q-field>
 
     <q-field
       icon="fab fa-whatsapp" style="margin-top:2rem;"
       icon-color="secondary"
       label="Whatsapp / Cel" >
-      <q-input v-model="form.wp" type="tel"/>
+      <q-input v-model="form.wp"
+       v-mask="'(##)#####-####'"
+      type="tel"/>
     </q-field>
-
     <q-btn  color="primary" class="full-width" style="margin-top:2rem"
       @click="store()" label="Salvar configurações" />
 
@@ -60,10 +62,12 @@ import Loja from '../../services/Loja';
 import User from '../../services/User';
 
 import Vuelidate from 'vuelidate';
-import { required, email } from 'vuelidate/lib/validators';
+import { required, email, minLength } from 'vuelidate/lib/validators';
 import Vue from 'vue';
 
+
 Vue.use(Vuelidate);
+
 
 export default {
   props: ['img'],

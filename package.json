@@ -20,6 +20,7 @@
     "vue-cropperjs": "^2.2.1",
     "vue-gallery": "^1.4.0",
     "vue-parallaxy": "^1.1.1",
+    "vue-the-mask": "^0.11.1",
     "vuelidate": "^0.7.4",
     "vuex-persistedstate": "^2.5.4"
   },
