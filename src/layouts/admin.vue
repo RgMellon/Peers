@@ -1,41 +1,16 @@
 <template>
   <q-layout>
-    <q-toolbar class="fixed" style="z-index:9999;" color="white">
-      <q-btn
-        flat round dense
-        icon="menu"
-        @click="leftSide = !leftSide"
-        color="amber"
-      />
-
-      <q-toolbar-title style="color:black; font-weight: 200;" >
-        <router-link to="/admin" style="color:black;text-decoration:none "> Minha Loja </router-link>
-      </q-toolbar-title>
-
+    <q-toolbar class="fixed" style="z-index:9999;" color="primary">
+        <q-btn
+          @click="$router.go(-1)"
+          flat
+          dense
+          round
+          aria-label="logo"
+          style="font-size: 1.2rem;color:white"
+        > <q-icon name="fas fa-arrow-circle-left" />
+      </q-btn>
     </q-toolbar>
-    <q-layout-drawer
-      side="left"
-      v-model="leftSide"
-    >
-      <q-list no-border link inset-separator style="margin-top:4rem">
-      <q-list-header style="background:#ffc107;color: white;">
-          <q-btn flat dense round aria-label="logo" color="secondary" style="margin-top:-0.5rem"
-            to="/" >
-            <img src="statics/icons/icon-128x128.png" class="avatar" style="height:40px; width:40px">
-          </q-btn>
-          <span style="margin-left:2rem;"> MyPeers </span>
-      </q-list-header>
-      <q-item :to="{ name: 'add_prod'}" style="margin-top:2rem">
-        <q-item-side icon="fas fa-plus-circle" />
-        <q-item-main label="Adicionar Produtos" sublabel="Adicione um novo produto" />
-      </q-item>
-      <q-item :to="{ name: 'lista_prod'}">
-        <q-item-side icon="fas fa-list-ul" />
-        <q-item-main label="Produtos" sublabel="ver produtos adicionados" />
-      </q-item>
-
-    </q-list>
-    </q-layout-drawer>
     <q-page-container>
       <router-view />
     </q-page-container>
@@ -47,7 +22,7 @@ export default {
   name: 'AdminLayout',
   data () {
     return {
-      leftSide: true
+
     }
   }
 }
