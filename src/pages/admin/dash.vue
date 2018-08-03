@@ -10,31 +10,43 @@
         </div>
       </div>
       <div class="info">
-      <q-btn icon="info" style="background:white; border-radius:36px;
-      width:45px; height:45px; color:#027be3">
-      <q-popover>
-        <q-list separator link>
-          <q-item @click.native="doSomething">
-            <p> Bem vindo a sua loja, aqui você pode
-                adicionar produtos para ser visto por todos usuarios,
-                além de adimistrar sua loja... Aproveite!
-                equipe myPeers ;) </p>
-          </q-item>
-        </q-list>
-      </q-popover>
-      </q-btn>
+        <q-btn icon="info" style="background:white; border-radius:36px;
+        width:45px; height:45px; color:#027be3">
+        <q-popover>
+          <q-list separator link>
+            <q-item @click.native="doSomething">
+              <p> Bem vindo a sua loja, aqui você pode
+                  adicionar produtos para ser visto por todos usuarios,
+                  além de adimistra-la... Aproveite!
+                  equipe myPeers ;) </p>
+            </q-item>
+          </q-list>
+        </q-popover>
+        </q-btn>
       </div>
     </section>
+    <q-list highlight>
+      <q-list-header>Área administrativa </q-list-header>
+      <q-item>
+        <q-item-side avatar="statics/calcado-favoritos.png" />
+        <q-item-main label="Quantidade calçados"
+          sublabel="Essa é a quantidade de calçados que você postou até agora"
+        />
+        <q-item-side right stamp="33" />
+      </q-item>
+    </q-list>
+    <acoes-loja/>
   </q-page>
 </template>
 
 
 <script>
+import AcoesLoja  from '../../components/admin/AcoesLoja';
 export default {
   name: 'PageDashBoard',
 
   components: {
-
+    'acoes-loja' : AcoesLoja
   },
 
   data () {
