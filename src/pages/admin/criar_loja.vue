@@ -41,7 +41,8 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+
 .img-upload {
   height: 300px;
   display: flex;
@@ -49,12 +50,13 @@ export default {
   align-items: center;
   background-image: url("/statics/default.jpg");
 }
+
 img {
   max-width: 100%;
   height: 300px;
   width: 100%;
-
 }
+
 .wrapper-btn {
   background: gray;
   height: 50px;

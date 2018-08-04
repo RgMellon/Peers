@@ -25,6 +25,7 @@
         </q-btn>
       </div>
     </section>
+
     <div class="acoes-loja" v-if="this.exists_loja.data">
       <q-list highlight>
         <q-list-header>Área administrativa </q-list-header>

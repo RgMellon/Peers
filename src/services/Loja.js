@@ -2,6 +2,7 @@ import sessionStorage from './sessionStorage';
 import { pathUrl, pathUser } from '../plugins/path';
 import { http } from './headerAuth';
 import axios from 'axios';
+import Storage from './localStorage';
 
 export default {
 
@@ -13,7 +14,12 @@ export default {
   },
 
   store(loja) {
-    return http.post(`${ pathUrl() }loja`, loja)
+    let token = Storage.get('usuarios').token;
+    return http.post(`${ pathUrl() }loja`, loja, {
+      headers: {
+        Authorization : `Bearer ${ token }`
+      }})
+      .then(res => sessionStorage.set('loja', res));
   },
 
   getLojaByProd(id) {

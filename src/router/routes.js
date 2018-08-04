@@ -75,13 +75,19 @@ export default [
         name: 'criar_loja'
       },
       {
+        path: 'editar',
+        meta: { requiresAuth: true },
+        component: () => import('pages/admin/editar_loja'),
+        name: 'editar_loja'
+      },
+      {
         path: 'adiciona',
         meta: { haveLoja: true },
         component: () => import('pages/admin/add_produtos'),
         name: 'add_prod'
       },
       {
-        path: '/lista',
+        path: 'lista',
         meta: { haveLoja: true },
         component: () => import('pages/admin/lista_produtos'),
         name: 'lista_prod'

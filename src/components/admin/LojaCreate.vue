@@ -40,7 +40,8 @@
       icon-color="purple"
       label="Tel">
       <q-input type="tel" v-mask="'(##)####-####'"
-      v-model="form.tell"/>
+        placeholder="(18) 3333-2221"
+        v-model="form.tell"/>
     </q-field>
 
     <q-field
@@ -49,9 +50,11 @@
       label="Whatsapp / Cel" >
       <q-input v-model="form.wp"
        v-mask="'(##)#####-####'"
+       placeholder="(18) 9999-2222"
       type="tel"/>
     </q-field>
-    <q-btn  color="primary" class="full-width" style="margin-top:2rem"
+
+    <q-btn  :loading="load" color="primary" class="full-width" style="margin-top:2rem"
       @click="store()" label="Salvar configurações" />
 
   </section>
@@ -64,7 +67,6 @@ import User from '../../services/User';
 import Vuelidate from 'vuelidate';
 import { required, email, minLength } from 'vuelidate/lib/validators';
 import Vue from 'vue';
-
 
 Vue.use(Vuelidate);
 
@@ -82,7 +84,8 @@ export default {
         bairro: '',
         tell: '',
         wp: '',
-      }
+      },
+      load: false,
     }
   },
 
@@ -96,13 +99,15 @@ export default {
           return
         }
 
+        this.load = true;
         User.getUser()
         .then(user => user.id)
         .then(id => {
           this.form.img = this.img;
-          this.form.id = id;
-          Loja.store(this.form);
-        });
+          this.form.user_id = id;
+          return this.form;
+        }).then(form => Loja.store(form))
+        .then(redireciona => this.$router.push('/loja/admin'))
     },
 
     existsImg() {

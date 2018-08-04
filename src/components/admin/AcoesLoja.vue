@@ -27,23 +27,23 @@ export default {
           icon: 'fas fa-cogs',
           color:'blue',
           handler: () => {
-            this.$router.push({ name : 'admin'})
+            this.$router.push({ name : 'editar_loja'})
           }
         },
         {
-          label: 'Adicionar Calçado',
+          label: 'Adicionar item',
           icon: 'fas fa-plus',
           color: 'purple',
           handler: () => {
-            this.$router.push({ name : 'calcados.favoritos'})
+            this.$router.push({ name : 'add_prod'})
           }
         },
         {
-          label: 'Lista de calçados',
+          label: 'Lista de itens',
           icon: 'fas fa-list-ul',
           color: 'green',
           handler: () => {
-            this.$router.push({ name : 'lojas.favoritos'})
+            this.$router.push({ name : 'lista_prod'})
           }
         }
       ]
