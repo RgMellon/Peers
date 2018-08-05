@@ -49,8 +49,7 @@ import Loja from '../../services/Loja';
 import sessionStorage from '../../services/sessionStorage';
 
 export default {
-
-
+  props: ['imgUpload'],
   name: 'LojaUpdate',
 
   data () {
@@ -72,6 +71,7 @@ export default {
   methods: {
     update() {
       this.load = true;
+      this.loja.img = this.imgUpload;
       Loja.update(this.loja)
         .then(res => this.load = false)
         .then(message => this.$q.notify({
@@ -79,11 +79,11 @@ export default {
           color: 'positive',
           icon: 'fas fa-thumbs-up',
         }))
-    }
-  },
+    },
 
-  mounted() {
+    lojaDoCache() {
       let loja = sessionStorage.get('loja').data;
+      // atualiza o data utilizando o cache
       this.loja.nome = loja.nome
       this.loja.sobre = loja.sobre
       this.loja.numero = loja.numero
@@ -92,6 +92,13 @@ export default {
       this.loja.tel = loja.tell
       this.loja.wp = loja.wp
       this.loja.id = loja.id;
+    }
+  },
+
+  mounted() {
+    // nesse ponto é pego os dados do cache
+    // para mostrar nos campos
+    this.lojaDoCache();
   },
 
 }
