@@ -7,10 +7,12 @@ import Storage from './localStorage';
 export default {
 
   update(loja) {
-    let lojaStorage = sessionStorage.get('loja');
-
-    return http.put(`${ pathUrl() }loja/${lojaStorage.id}`, loja)
-      .then(res => sessionStorage.set('loja', res.data));
+    let token = Storage.get('usuarios').token;
+    return axios.put(`${ pathUrl() }loja/${loja.id}`, loja, {
+      headers: {
+        Authorization : `Bearer ${ token }`
+      }})
+      .then(res => sessionStorage.set('loja', res));
   },
 
   store(loja) {

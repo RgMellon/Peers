@@ -42,18 +42,14 @@ export default {
 </script>
 
 <style scoped>
-
 .img-upload {
-  height: 300px;
+  padding-top: 3.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("/statics/default.jpg");
 }
-
 img {
   max-width: 100%;
-  height: 300px;
   width: 100%;
 }
 

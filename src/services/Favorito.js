@@ -9,7 +9,7 @@ export default {
   set(item) {
     item.user = sessionStorage.get('user').id;
     return http.post(`${ pathUser() }fav`, item)
-      .then(res => console.log(res));
+      .then(res => res);
   },
 
   get(){
@@ -20,7 +20,7 @@ export default {
           'user' : sessionStorage.get('user').id,
         }
       })
-        .then(res => res.data.forEach(element => array.push(JSON.parse(element))));
+      .then(res => res.data.forEach(element => array.push(JSON.parse(element))));
 
       return new Promise((resolve, reject) => {
         resolve(array);

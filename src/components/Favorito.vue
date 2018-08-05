@@ -24,9 +24,8 @@
 
 <script>
 
-import { mapGetters } from 'vuex';
-import { mapActions } from 'vuex';
-import { retornaTokenLocal } from '../services/retornaTokenLocal';
+
+import sessionStorage from '../services/sessionStorage';
 import Favorito from '../services/Favorito';
 
 export default {
@@ -38,7 +37,18 @@ export default {
   },
   methods: {
     favoritar() {
-      Favorito.set(this.calcado);
+      let loja = sessionStorage.get('loja_detalhe');
+
+      let objFav = {
+        nome: this.calcado.nome,
+        descricao : this.calcado.descricao,
+        preco: this.calcado.preco,
+        id: this.calcado.id,
+        loja: loja.nome,
+        lojaId: loja.id,
+      }
+      Favorito.set(objFav)
+        .then(this.notify());
     },
     notify () {
       this.$q.notify({
@@ -46,9 +56,7 @@ export default {
         message: 'Adicionado aos favoritos'
       })
     },
-    ...mapActions({
-        add_calcado_favorito : 'add_calcado_favorito'
-    })
+
   }
 }
 </script>

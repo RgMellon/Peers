@@ -10,6 +10,17 @@
           style="font-size: 1.2rem;color:white"
         > <q-icon name="fas fa-arrow-circle-left" />
       </q-btn>
+
+      <q-btn
+          @click="$router.push('/usuario')"
+          flat
+          dense
+          round
+          aria-label="logo"
+          style="font-size: 1rem;color:white"
+        > <q-icon name="fas fa-user" />
+      </q-btn>
+
       <q-btn
           @click="$router.push('/loja/admin')"
           flat
@@ -19,6 +30,9 @@
           style="font-size: 1.2rem;color:white"
         > <q-icon name="store" />
       </q-btn>
+
+
+
     </q-toolbar>
     <q-page-container>
       <router-view />

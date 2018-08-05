@@ -5,6 +5,7 @@
           :nome="i.nome" :descricao="i.descricao"
           :img="i.img" :preco="i.preco">
       </lista>
+
       <q-btn round class="btn-delete" @click="remove(i)"
         icon="fas fa-trash-alt"
         color="red" />
