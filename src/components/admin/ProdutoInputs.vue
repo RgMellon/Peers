@@ -74,9 +74,16 @@ export default {
       this.validate();
       this.emptyImg();
       this.load = true;
+
       this.form.img = this.imgCropp;
+
       Produto.store(this.form)
-      .then(res => this.load = false)
+        .then(message => this.$q.notify({
+            message: 'Produto adicionado!',
+            color: 'positive',
+            icon: 'fas fa-thumbs-up',
+        }))
+        .then(redireciona => this.$router.push('/loja/admin'))
     },
 
     validate() {

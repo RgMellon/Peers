@@ -1,10 +1,13 @@
-import axios from 'axios';
+
 import { retornaTokenLocal } from '../services/retornaTokenLocal';
 
-export const http = axios.create({
+export const http = () => {
+  let obj = {
+    headers : {
+      Authorization : `Bearer ${retornaTokenLocal()}`
+    }
+  }
 
-  headers : {
-    Authorization : `Bearer ${retornaTokenLocal()}`
-  },
+  return obj;
 
-});
+}

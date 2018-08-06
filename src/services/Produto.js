@@ -1,13 +1,17 @@
-import { http } from './headerAuth';
 import { pathUrl } from '../plugins/path';
 import sessionStorage from './sessionStorage';
 import axios from 'axios';
+import { retornaTokenLocal } from '../services/retornaTokenLocal';
 
 export default {
 
   store(prod) {
-    prod.loja_id = sessionStorage.get('loja').id;
-    return http.post(`${ pathUrl() }produtos`, prod)
+    prod.loja_id = sessionStorage.get('loja').data.id;
+    return axios.post(`${ pathUrl() }produtos`, prod, {
+      headers : {
+        Authorization : `Bearer ${retornaTokenLocal()}`
+      }
+    })
   },
 
   getProdutosByLoja() {
