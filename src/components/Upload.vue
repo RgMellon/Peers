@@ -2,7 +2,7 @@
   <div class="">
     <div :style="sizeIcon" class="cor-icone">
       <label for="file-input" class="flex">
-        <q-icon  :name="icon"/>
+        <q-icon  :name="icon" color="blue" />
       </label>
       <input id="file-input" type="file" accept="image/*" @change="onFileChange"/>
     </div>

@@ -1,4 +1,4 @@
-const ambiente = 'prod';
+const ambiente = 'dev';
 
 export default ({ Vue }) => {
 

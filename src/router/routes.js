@@ -7,6 +7,14 @@ export default [
       { path: '', component: () => import('pages/index') }
     ]
   },
+
+  {
+    path: '/teste',
+    component: () => import('layouts/default'),
+    children: [
+      { path: '', component: () => import('pages/teste') }
+    ]
+  },
   {
     path: '/calcado/detalhes',
     component: () => import('layouts/detalhes'),

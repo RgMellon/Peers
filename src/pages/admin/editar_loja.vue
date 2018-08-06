@@ -4,10 +4,12 @@
       <div class="img-editar-loja">
         <img :src="this.file" alt="">
       </div>
-      <div class="wrapper-btn">
-        <upload @imgCortada="uploadFile" icon="fas fa-camera"
-          size="30" class="btn-upload">
-        </upload>
+      <div class="btn-upload row justify-end">
+        <div class="wrapper-btn">
+          <upload @imgCortada="uploadFile" icon="fas fa-camera"
+            size="30" class="btn-upload">
+          </upload>
+        </div>
       </div>
       <loja-update :imgUpload="this.file"/>
     </section>
@@ -52,5 +54,17 @@ export default {
   }
   .img-editar-loja {
     margin-top: -9px;
+  }
+
+  .wrapper-btn {
+    background: white;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    margin-top: -30px;
+    color:red;
   }
 </style>

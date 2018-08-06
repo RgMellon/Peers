@@ -1,7 +1,8 @@
 <template>
   <q-page>
     <div class="img-upload" >
-      <img :src="this.file" alt="">
+      <img v-if="this.file" :src="this.file" alt="">
+      <img v-else src="statics/default.jpg">
     </div>
     <div class="btn-upload row justify-end">
       <div class="wrapper-btn">
@@ -55,7 +56,7 @@ img {
 }
 
 .wrapper-btn {
-  background: gray;
+  background: white;
   height: 50px;
   width: 50px;
   display: flex;

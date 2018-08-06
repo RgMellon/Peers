@@ -16,7 +16,7 @@
     </q-field>
 
     <q-field label="Numero" style="margin-top:2rem;">
-         <q-input v-model="loja.numero" type="text"/>
+         <q-input v-model="loja.numero" type="number"/>
      </q-field>
 
     <q-field label="Bairro" style="margin-top:2rem;">
@@ -27,14 +27,15 @@
       icon="fas fa-phone" style="margin-top:2rem;"
       icon-color="red"
       label="Tel">
-      <q-input type="tel" v-model="loja.tel"/>
+      <q-input type="tel" v-mask="'(##)####-####'"
+        v-model="loja.tel"/>
     </q-field>
 
     <q-field
       icon="fab fa-whatsapp" style="margin-top:2rem;"
       icon-color="secondary"
       label="Whatsapp" >
-      <q-input v-model="loja.wp" type="tel"/>
+      <q-input v-model="loja.wp" v-mask="'(##)#####-####'" type="tel"/>
     </q-field>
 
     <q-btn :loading="load" color="primary" class="full-width"
